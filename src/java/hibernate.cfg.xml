@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Setare?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">admin</property>
+    <property name="hibernate.connection.pool_size">5</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <mapping class="model.Car"/>
+    <mapping class="model.Country"/>
+    <mapping class="model.TaxiService"/>
+    <mapping class="model.CarService"/>
+    <mapping class="model.PickUpLocation"/>
+    <mapping class="model.PickUpLocationTaxi"/>
+    <mapping class="model.DropOffLocationPickUpLocationId"/>
+    <mapping class="model.UserProfile"/>
+    <mapping class="model.DropOffLocationPickUpLocation"/>
+    <mapping class="model.Taxi"/>
+    <mapping class="model.Category"/>
+    <mapping class="model.User"/>
+    <mapping class="model.Subsidiary"/>
+    <mapping class="model.City"/>
+    <mapping class="model.Agency"/>
+    <mapping class="model.DropOffLocation"/>
+    <mapping class="model.PickUpLocationTaxiId"/>
+  </session-factory>
+</hibernate-configuration>

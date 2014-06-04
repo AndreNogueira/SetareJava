@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="Setare"/>
+  <table-filter match-name="country"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="taxi"/>
+  <table-filter match-name="pick_up_location"/>
+  <table-filter match-name="city"/>
+  <table-filter match-name="agency"/>
+  <table-filter match-name="drop_off_location_pick_up_location"/>
+  <table-filter match-name="user_profile"/>
+  <table-filter match-name="taxi_service"/>
+  <table-filter match-name="car_service"/>
+  <table-filter match-name="subsidiary"/>
+  <table-filter match-name="category"/>
+  <table-filter match-name="car"/>
+  <table-filter match-name="drop_off_location"/>
+  <table-filter match-name="pick_up_location_taxi"/>
+</hibernate-reverse-engineering>
