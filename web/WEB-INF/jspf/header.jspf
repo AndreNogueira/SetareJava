@@ -1,0 +1,88 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/setare-ico.ico" />
+        <!-- CSS files-->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundation/normalize.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundation/foundation.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundicons/foundation-icons.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/home.css">
+        <!-- JS files-->
+        <sj:head jqueryui="true" jquerytheme="flick"/>
+        <script src="${pageContext.request.contextPath}/assets/js/foundation/modernizr.js"></script>
+        <title>Setare</title>
+    </head>
+    <body>
+        <div class="fixed">
+            <nav class="top-bar" data-topbar data-options="is_hover: true">
+                <ul class="title-area">
+                    <li class="name">
+                        <s:a href="/SetareJava">
+                            <img src="<s:url value="/assets/images/setare-logo.png"/>" class="logo-topbar" />
+                        </s:a>
+                    </li>
+                </ul>
+                <section class="top-bar-section">
+                    <ul class="right">
+                        <li class="divider"></li>
+                            <s:if test="#session['user'] != null">
+                            <li>Taxis</li>
+                            <li class="divider"></li>
+                            <li>Cars</li>
+                            <li class="divider"></li>
+                            <li class="has-dropdown not-click">
+                                Username
+                                <ul class="dropdown">
+                                    <li>
+                                        <i class="fi-torso large"></i> Profile
+                                    </li>
+                                    <li>
+                                        <i class="fi-book-bookmark large"></i> My Reservations
+                                    </li>
+                                    <li>
+                                        <i class="fi-power large"></i> Logout
+                                    </li>
+                                </ul>
+                            </li>
+                        </s:if>
+                        <s:else>
+                            <li>
+                                <s:url action="login-page" namespace="users" var="loginURL"/>
+                                <s:a href="/SetareJava/%{loginURL}" namespace="users">Login</s:a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                <s:url action="register-page" namespace="users" var="registerURL"/>
+                                <s:a href="/SetareJava/%{registerURL}" namespace="users">Register</s:a>
+                                </li>
+                        </s:else>
+                    </ul>
+                </section>
+            </nav>
+        </div>
+        <!-- Error and Info Messages -->
+        <s:if test="hasActionErrors()">
+            <s:iterator value="actionErrors">
+                <div data-alert class="alert-box warning flash_alert">
+                    <s:property/>
+                    <a href="#" class="close">&times;</a>            
+                </div>        
+            </s:iterator>    
+        </s:if>
+        <s:if test="hasActionMessages()">
+            <s:iterator value="actionMessages">
+                <div data-alert class="alert-box success flash_alert">
+                    <s:property/>
+                    <a href="#" class="close">&times;</a>            
+                </div>        
+            </s:iterator> 
+        </s:if>
