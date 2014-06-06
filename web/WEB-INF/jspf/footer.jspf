@@ -1,5 +1,6 @@
 
 <script src="${pageContext.request.contextPath}/assets/js/foundation/foundation.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/taxis.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/application.js"></script>
 </body>
 </html>

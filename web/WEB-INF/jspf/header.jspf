@@ -57,7 +57,7 @@
                                         </s:a>                                        
                                     </li>
                                     <li>
-                                        <s:url action="#" namespace="users" var="reservationsURL" />
+                                        <s:url action="reservations" namespace="users" var="reservationsURL" />
                                         <s:a href="/SetareJava/%{reservationsURL}" namespace="users">
                                            <i class="fi-book-bookmark large"></i> My Reservations
                                         </s:a>
