@@ -6,7 +6,7 @@
             </div>
         </div>
         <!--  form action="user-registration" data-abide="" namespace="/users" method="post"  -->
-        <s:form action="register-page" namespace="/users" method="post" novalidate="novalidate"  >
+        <s:form action="register" namespace="/users" method="post" novalidate="novalidate"  >
             <fieldset class="fieldset-border">
                 
                 <!-- FALTA ADICIONAR AQUI QQ MERDA PARA DAR OS ERROS -->
@@ -51,18 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Row Password Confirmation -->
-                    <div class="row">
-                        <div class="password-confirmation-field">
-                            <div class="large-2 columns">
-                            <s:label name="user.password_confirmation" value="Password Confirmation" cssClass="right inline"></s:label>
-                            </div>
-                            <div class="large-10 columns">
-                            <s:password name="user.password_confirmation" required="true" placeholder="Repeat your password" ></s:password>
-                                <small class="error">Passwords must be equals.</small>
-                            </div>
-                        </div>
-                    </div>
+                    
                         
                         
                     <div class="row">

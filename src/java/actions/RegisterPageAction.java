@@ -1,49 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import dao.UserDAO;
-import dao.UserProfileDAO;
-import model.User;
-import model.UserProfile;
 import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.Result;
 
+/**
+ *
+ * @author pjmaia
+ */
 @Namespace("/users")
-@Result(name="success",location="login-page.jsp") //mandar isto pra uma página qq de sucesso.. index?
-public class RegisterPageAction extends ActionSupport {
-    private User user;
-    
-    public RegisterPageAction() {
-    }
-    
-    
-    @Override
-    public String execute() throws Exception {
-        create_user(user);
-        return SUCCESS;
-    } 
-    
-    public User getUser() {
-         
-        return user;
-         
-    }
+public class RegisterPageAction extends ActionSupport{
      
-    public void setUser(User user) {
-         
-        this.user = user;
-         
-    }
-    
-    
-    public void create_user(User u){
-        UserProfile up;
-        UserProfileDAO upDAO = new UserProfileDAO();
-        up = upDAO.find(1);
-        
-        UserDAO uDAO = new UserDAO();      
-        u.setUserProfile(up);
-        uDAO.create(u); 
-    }
-    
+    @Override
+    public String execute() throws Exception {  
+        return SUCCESS;
+    }     
 }

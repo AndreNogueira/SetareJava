@@ -20,16 +20,20 @@ public class AbstractDAO<T> {
         return this.session;
     }
 
-    public void create(T t) {
+    public boolean create(T t) {
+        boolean flag = false;
         Transaction trans = session.beginTransaction();
         try {
             session.save(t);
             trans.commit();
+            flag = true;
         } catch (Exception e) {
             trans.rollback();
+            flag = false;
         } finally {
-            session.disconnect();
+            session.disconnect();            
         }
+        return flag;
     }
 
     public void update(T t) {
