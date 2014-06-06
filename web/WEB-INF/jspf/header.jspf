@@ -35,21 +35,38 @@
                     <ul class="right">
                         <li class="divider"></li>
                             <s:if test="#session['user'] != null">
-                            <li>Taxis</li>
+                            <li>
+                                <s:url action="#" namespace="taxis" var="taxisURL" />
+                                <s:a href="/SetareJava/%{taxisURL}" namespace="taxis">Taxis</s:a>
+                            </li>
                             <li class="divider"></li>
-                            <li>Cars</li>
+                            <li>
+                                <s:url action="#" namespace="cars" var="carsURL" />
+                                <s:a href="/SetareJava/%{carsURL}" namespace="cars">Cars</s:a>
+                            </li>
                             <li class="divider"></li>
                             <li class="has-dropdown not-click">
-                                Username
+                                <s:a href="#">
+                                    <s:property value="#session['user'].name" />
+                                </s:a>
                                 <ul class="dropdown">
                                     <li>
-                                        <i class="fi-torso large"></i> Profile
+                                        <s:url action="#" namespace="users" var="profileURL" />
+                                        <s:a href="/SetareJava/%{profileURL}" namespace="users">
+                                            <i class="fi-torso large"></i> Profile
+                                        </s:a>                                        
                                     </li>
                                     <li>
-                                        <i class="fi-book-bookmark large"></i> My Reservations
+                                        <s:url action="#" namespace="users" var="reservationsURL" />
+                                        <s:a href="/SetareJava/%{reservationsURL}" namespace="users">
+                                           <i class="fi-book-bookmark large"></i> My Reservations
+                                        </s:a>
                                     </li>
                                     <li>
-                                        <i class="fi-power large"></i> Logout
+                                        <s:url action="logout" namespace="users" var="logoutURL" />
+                                        <s:a href="/SetareJava/%{logoutURL}" namespace="users">
+                                            <i class="fi-power large"></i> Logout
+                                        </s:a>                                        
                                     </li>
                                 </ul>
                             </li>
@@ -58,12 +75,12 @@
                             <li>
                                 <s:url action="login-page" namespace="users" var="loginURL"/>
                                 <s:a href="/SetareJava/%{loginURL}" namespace="users">Login</s:a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <s:url action="register-page" namespace="users" var="registerURL"/>
                                 <s:a href="/SetareJava/%{registerURL}" namespace="users">Register</s:a>
-                                </li>
+                            </li>
                         </s:else>
                     </ul>
                 </section>
