@@ -5,7 +5,7 @@
                 <h2>Login</h2>
             </div>
         </div>
-        <s:form action="login" method="post" validate="true" >
+        <s:form action="login" method="post" validate="true" data-abide="abide" >
             <fieldset class="fieldset-border">
                 <div class="row">
                     <div class="email-field">
@@ -15,6 +15,13 @@
                         <div class="large-10 columns">
                             <s:textfield type="email" name="email" autofocus="true" placeholder="E-mail" required="true" />
                             <small class="error">An email address is required.</small>
+                            <s:if test="hasFieldErrors()">
+                                <small class="error">
+                                    <s:iterator value="fieldErrors.email">
+                                        <s:property /> 
+                                    </s:iterator>
+                                </small>
+                            </s:if>
                         </div>
                     </div>
                 </div>
@@ -26,6 +33,13 @@
                         <div class="large-10 columns">
                             <s:password name="password" placeholder="Password" required="true" />
                             <small class="error">A password is required.</small>
+                            <s:if test="hasFieldErrors()">
+                                <small class="error">
+                                    <s:iterator value="fieldErrors.password">
+                                        <s:property /> 
+                                    </s:iterator>
+                                </small> 
+                            </s:if>
                         </div>
                     </div>
                 </div>

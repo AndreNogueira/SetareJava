@@ -11,9 +11,10 @@ import org.apache.struts2.interceptor.SessionAware;
 
 @Namespace("/users")
 @Results({
-        @Result(name = "success", location = "/index.jsp"),
-        @Result(name = "error", location= "login-page.jsp")
-        })
+    @Result(name = "success", location = "/index.jsp"),
+    @Result(name = "error", location = "login-page.jsp"),
+    @Result(name = "input", location = "login-page.jsp")
+})
 public class Login extends ActionSupport implements SessionAware {
 
     private String email;
@@ -28,26 +29,24 @@ public class Login extends ActionSupport implements SessionAware {
     public String execute() throws Exception {
         userDao = new UserDAO();
         User u = userDao.findByEmail(getEmail());
-        if (u == null) {
-            addActionError("");            
-            return ERROR;
-        } else if(!u.getPassword().equals(getPassword())){
+        if (u == null || !u.getPassword().equals(getPassword())) {
             addActionError("Password and E-mail don't match. Please try again");
             return ERROR;
-        }
-        else {
+        } else {
             session.put("user", u);
             addActionMessage("Login successfull");
-            return SUCCESS;        
+            return SUCCESS;
         }
     }
-    
+
     @Override
-    public void validate(){
-        if(getEmail().equals(""))
+    public void validate() {
+        if (getEmail().equals("")) {
             addFieldError("email", "E-mail can't be empty");
-        if(getPassword().equals(""))
-            addFieldError("password", "Password can't be empty");        
+        }
+        if (getPassword().equals("")) {
+            addFieldError("password", "Password can't be empty");
+        }
     }
 
     /* Getters and Setters */

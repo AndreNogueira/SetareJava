@@ -22,7 +22,6 @@ public class ReservationsAction extends ActionSupport implements SessionAware{
     @Override
     public String execute() throws Exception {
         User u = (User) this.session.get("user");
-        System.out.println(u.getTaxiServices().size());
         setCarServices(u.getCarServices());
         setTaxiServices(u.getTaxiServices());
         return SUCCESS;
