@@ -75,7 +75,7 @@ li.active a, li.active a:hover{
 }
 
 .flash_alert{
-    position: absolute;
+    //position: absolute;
     width: 100%;
     z-index: 100;
 }
