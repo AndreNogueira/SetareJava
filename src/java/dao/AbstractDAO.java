@@ -79,6 +79,6 @@ public class AbstractDAO<T> {
         return ((Long) session.createQuery("select count(*) from " + classe.getName())
                 .list().get(0)).intValue();
     }
-
+   
 }
 

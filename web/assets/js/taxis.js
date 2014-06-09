@@ -13,29 +13,29 @@ $(document).ready(function () {
         else
             city.attr('disabled', true);
     });
-    /*
+    
     $('select#city').on('change', function () {
         var city_id = $(this).val();
         var pick_up = $('select#pick_up_location');
         $('select#drop_off_location').attr('disabled', true);
         $('select#pick_up_location > option:gt(0)').remove();
         $('select#drop_off_location > option:gt(0)').remove();
-        if (city_id != '')
-            fill_data('pick_up/' + city_id, pick_up);
+        if (city_id !== '')
+            fill_data('/SetareJava/taxis/city', city_id, pick_up);
         else
             pick_up.attr('disabled', true);
     });
-
+    
     $('select#pick_up_location').on('change', function () {
         var pick_up_id = $(this).val();
         var drop_offs = $('select#drop_off_location');
         $('select#drop_off_location > option:gt(0)').remove();
-        if (pick_up_id != '')
-            fill_data('drop_off/' + pick_up_id, drop_offs);
+        if (pick_up_id !== '')
+            fill_data('/SetareJava/taxis/pick-up-locations' , pick_up_id, drop_offs);
         else
             drop_offs.attr('disabled', true);
     });
-
+/*
     $('input#begin-datepicker').datepicker({
         dateFormat: 'dd/mm/yy',
         showAnim: 'blind',
@@ -109,8 +109,7 @@ $(document).ready(function () {
         button.empty().append(content).append(text);
     }
 
-    function fill_data(url, id, html_select) {
-        
+    function fill_data(url, id, html_select) {        
         $.getJSON(url , {id:id}, function (data) {
             html_select.attr('disabled', false);
             $.each(data.names, function (index, value) {
