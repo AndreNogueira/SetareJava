@@ -15,14 +15,14 @@ import org.apache.struts2.interceptor.SessionAware;
     @Result(name = "error", location = "login-page.jsp"),
     @Result(name = "input", location = "login-page.jsp")
 })
-public class Login extends ActionSupport implements SessionAware {
+public class LoginAction extends ActionSupport implements SessionAware {
 
     private String email;
     private String password;
     private UserDAO userDao;
     private Map<String, Object> session;
 
-    public Login() {
+    public LoginAction() {
     }
 
     @Override

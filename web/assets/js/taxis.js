@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    /*
+    
     $('select#country').on('change', function () {
         var country_id = $(this).val();
         var city = $('select#city');
@@ -8,12 +8,12 @@ $(document).ready(function () {
         $('select#city > option:gt(0)').remove();
         $('select#drop_off_location > option:gt(0)').remove();
         $('select#pick_up_location > option:gt(0)').remove();
-        if (country_id != '')
-            fill_data('city/' + country_id, city);
+        if (country_id !== '')
+            fill_data('/SetareJava/taxis/country',country_id , city);
         else
             city.attr('disabled', true);
     });
-
+    /*
     $('select#city').on('change', function () {
         var city_id = $(this).val();
         var pick_up = $('select#pick_up_location');
@@ -109,13 +109,14 @@ $(document).ready(function () {
         button.empty().append(content).append(text);
     }
 
-    function fill_data(url, html_select) {
-        $.get(url, function (data) {
+    function fill_data(url, id, html_select) {
+        
+        $.getJSON(url , {id:id}, function (data) {
             html_select.attr('disabled', false);
-            $.each(data, function (index, value) {
-                var option = $('<option>').text(value.name).attr('value', value.id);
+            $.each(data.names, function (index, value) {
+                var option = $('<option>').text(value).attr('value', index);
                 html_select.append(option);
             });
-        }, "json");
+        });
     }
 });

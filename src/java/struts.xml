@@ -8,4 +8,5 @@
     <package name="default" extends="struts-default">
         
     </package>
+    <package name="json-actions" extends="json-default"></package>
 </struts>

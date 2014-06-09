@@ -74,8 +74,34 @@ li.active a, li.active a:hover{
   display:block;
 }
 
+#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer{
+    color: white;
+    text-align: center;
+    margin-top: 1%;
+}
+#error_explanation{
+    color: red;
+}
+
+input[readonly]
+{
+    background-color:#D5D5D5 !important;
+}
+select:disabled{
+    color: grey;
+}
+
+thead th, thead td, thead tr{
+    text-align: center !important;
+}
+
 .flash_alert{
-    position: absolute;
+    //position: absolute;
     width: 100%;
     z-index: 100;
 }

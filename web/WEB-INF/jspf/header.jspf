@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundation/foundation.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundicons/foundation-icons.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/home.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/taxis.css">
         <!-- JS files-->
         <sj:head jqueryui="true" jquerytheme="flick"/>
         <script src="${pageContext.request.contextPath}/assets/js/foundation/modernizr.js"></script>
@@ -36,7 +37,7 @@
                         <li class="divider"></li>
                             <s:if test="#session['user'] != null">
                             <li>
-                                <s:url action="#" namespace="taxis" var="taxisURL" />
+                                <s:url action="index" namespace="taxis" var="taxisURL" />
                                 <s:a href="/SetareJava/%{taxisURL}" namespace="taxis">Taxis</s:a>
                             </li>
                             <li class="divider"></li>
@@ -51,7 +52,7 @@
                                 </s:a>
                                 <ul class="dropdown">
                                     <li>
-                                        <s:url action="#" namespace="users" var="profileURL" />
+                                        <s:url action="profile-page" namespace="users" var="profileURL" />
                                         <s:a href="/SetareJava/%{profileURL}" namespace="users">
                                             <i class="fi-torso large"></i> Profile
                                         </s:a>                                        

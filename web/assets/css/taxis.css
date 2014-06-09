@@ -1,0 +1,55 @@
+.type-trip-align{
+  line-height:3em;
+  text-align:center;
+}
+.time-select-after-search{
+  width:120px;
+}
+.input-center{
+  text-align:center;
+  background-color:#D5D5D5 !important;
+  border:solid 1px #FFFFFF !important;
+}
+.span-align{
+  padding:2% 0 2% 5%;
+}
+.taxi{
+  border:solid 1px grey;
+  background-color:gainsboro;
+  margin-top:2% !important;
+  margin-bottom:2% !important;
+  /*border-radius*/
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+.taxi-info-div{
+  padding-top:5%;
+  text-align:center;
+}
+.taxi-info{
+  padding-top:8%;
+  padding-right:3%;
+}
+.taxi-text-color{
+  color:midnightblue;
+}
+.taxi-image{
+  /*box-shadow*/
+  -webkit-box-shadow:6px 0px 10px #999;
+  -moz-box-shadow:6px 0px 10px #999;
+  box-shadow:6px 0px 10px #999;
+}
+.taxi-time{
+  width:46%;
+}
+.taxi-textarea{
+  resize:none;
+}
+.taxi-expiry-year{
+  width:48%;
+  margin-right:2%;
+}
+.taxi-expiry-month{
+  width:48%;
+}
