@@ -1,7 +1,7 @@
     
 <div class="row">
-    <div class="large-9 large-offset-1 columns end">
-      
+        <div class="large-9 large-offset-1 columns end">
+        
         <div class="row">
             <div class="large-9 large-offset-2 columns">
                 <h2>Edit</h2>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>                    
-                    
+                        
                     <!-- Row Email -->
                     <div class="row">
                         <div class="email-field">
@@ -51,9 +51,9 @@
                             </div>  
                         </div>
                     </div>                
-                    
-                    
-                    
+                        
+                        
+                        
                     <div class="row">
                         <div class="number-field">
                             <div class="large-3 columns">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                        
                     <!-- Row Driver License -->
                     <div class="row">
                         <div class="number-field">
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                        
                     <!-- Row NIF -->
                     <div class="row">
                         <div class="number-field">
@@ -152,10 +152,10 @@
                         </div>
                     </div>
                     <!-- Row Address -->                    
-                    
+                        
                     <div class="row">
                         <div class="large-4 large-offset-3 columns">
-                            <a href="/user_password/edit">Change my password</a>
+                            <a href="password-page">Change Password</a>                        
                         </div>
                     </div>
                     <br>
@@ -164,7 +164,7 @@
                             <input class="button small radius" type="submit" value="Update">
                         </div>
                     </div>
-                    
+                        
                 </fieldset>
             </s:form>
         </div>
