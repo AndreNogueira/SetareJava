@@ -51,7 +51,7 @@
                                 </s:a>
                                 <ul class="dropdown">
                                     <li>
-                                        <s:url action="#" namespace="users" var="profileURL" />
+                                        <s:url action="profile-page" namespace="users" var="profileURL" />
                                         <s:a href="/SetareJava/%{profileURL}" namespace="users">
                                             <i class="fi-torso large"></i> Profile
                                         </s:a>                                        

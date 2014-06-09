@@ -36,16 +36,20 @@ public class AbstractDAO<T> {
         return flag;
     }
 
-    public void update(T t) {
+    public boolean update(T t) {
+        boolean flag = false;
         Transaction trans = session.beginTransaction();
         try {
             session.update(t);
             trans.commit();
+            flag = true;
         } catch (Exception e) {
             trans.rollback();
+            flag = false;
         } finally {
             session.disconnect();
         }
+        return flag;
     }
 
     public void delete(T t) {
