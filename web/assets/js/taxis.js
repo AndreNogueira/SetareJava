@@ -35,41 +35,23 @@ $(document).ready(function () {
         else
             drop_offs.attr('disabled', true);
     });
-/*
-    $('input#begin-datepicker').datepicker({
-        dateFormat: 'dd/mm/yy',
-        showAnim: 'blind',
-        minDate: 0
-    });
-    $('input#end-datepicker').datepicker({
-        dateFormat: 'dd/mm/yy',
-        showAnim: 'blind',
-        minDate: 0
+    
+    $.subscribe('slideSlider',function(event,ui){
+        $("input#passengers").val(event.originalEvent.ui.value);
     });
 
-    $('div#slider').slider({
-        range: 'min',
-        min: 1,
-        max: 55,
-        create: function (event, ui) {
-            $(this).slider('value', $("input#passengers").val());
-        },
-        slide: function (event, ui) {
-            $("input#passengers").val(ui.value);
-        }
+    $('button#begin-calendar').click(function (event) {
+        event.preventDefault();
+        $('#begin_date').datepicker('show');
+    }); 
+    $('button#end-calendar').click(function (event) {
+        event.preventDefault();
+        $('#end_date').datepicker('show');
     });
-
-    $('button#begin-calendar').click(function () {
-        $('#begin-datepicker').datepicker('show');
-    });
-    $('button#end-calendar').click(function () {
-        $('#end-datepicker').datepicker('show');
-    });
-
     $('input[name=type_trip]').on('change', function () {
         $('div#return_date').slideToggle();
     });
-
+/*
     $('button#button-edit').on('click', function (event) {
         event.preventDefault();
         var all_inputs = $('fieldset#user-info input');

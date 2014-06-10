@@ -2,7 +2,6 @@ package actions.taxis;
 
 import com.opensymphony.xwork2.ActionSupport;
 import dao.DropOffLocationDAO;
-import dao.PickUpLocationDAO;
 import java.util.Map;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
