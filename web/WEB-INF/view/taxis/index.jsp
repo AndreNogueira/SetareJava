@@ -154,8 +154,6 @@
                 </s:submit>
             </div>
           </div>
-
-
             </fieldset>            
         </s:form>       
     </div>
