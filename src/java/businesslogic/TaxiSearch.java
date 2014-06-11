@@ -1,5 +1,6 @@
 package businesslogic;
 
+import beans.DistanceCalculator;
 import beans.TaxiCost;
 import beans.TaxiCostComparator;
 import dao.DropOffLocationDAO;
@@ -40,7 +41,9 @@ public class TaxiSearch {
     }
 
     private double calculateDistanceInKm(String pickUpName, String dropOffName) {
-        return checkDistanceRoundTrip(1.0);
+        double dist = DistanceCalculator.calculateDistance(pickUpName, dropOffName);
+        if(dist == 0) dist = 20.0;
+        return checkDistanceRoundTrip(dist);
     }
     private double checkDistanceRoundTrip(double distance) {
         return isRoundTrip() ? distance * 2 : distance;
@@ -90,5 +93,4 @@ public class TaxiSearch {
     public void setRoundTrip(String roundTrip) {
         this.roundTrip = roundTrip;
     }
-
 }
