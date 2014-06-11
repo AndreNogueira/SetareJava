@@ -9,16 +9,16 @@ import org.hibernate.criterion.Restrictions;
 
 public class PickUpLocationDAO extends AbstractDAO<PickUpLocation> {
 
-    public Map<String, String> getPickUpLocationsByCity(Integer id) {
+    public Map<String, String> getPickUpLocationsByCity(Integer idCity) {
         Criteria crit = super.getSession().createCriteria(PickUpLocation.class);
-        crit.add(Restrictions.eq("city.id", id));
+        crit.add(Restrictions.eq("city.id", idCity));
         return createMapPickUpLocations(crit.list());
     }
 
     private Map<String, String> createMapPickUpLocations(List<PickUpLocation> list) {
         Map<String, String> result = new TreeMap<>();
         for (PickUpLocation c : list) {
-            result.put(c.getId().toString(), c.getName());
+            result.put(c.getName(),c.getId().toString());
         }
         return result;
     }

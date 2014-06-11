@@ -29,6 +29,7 @@ public class PickUpLocation implements java.io.Serializable {
     
     
     private Set<DropOffLocation> dropOffLocations = new HashSet<>(0);
+    private Set<Taxi> taxis = new HashSet<>(0);
 
     public PickUpLocation() {
     }
@@ -106,6 +107,21 @@ public class PickUpLocation implements java.io.Serializable {
     public void setDropOffLocations(Set<DropOffLocation> dropOffLocations) {
         this.dropOffLocations = dropOffLocations;
     }
+
+    @ManyToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name="pick_up_location_taxi",catalog = "Setare",
+               joinColumns = {@JoinColumn(name = "pick_up_location_id")},
+               inverseJoinColumns = {@JoinColumn(name = "taxi_id")}
+            )
+    public Set<Taxi> getTaxis() {
+        return taxis;
+    }
+
+    public void setTaxis(Set<Taxi> taxis) {
+        this.taxis = taxis;
+    }
+    
+    
     
     
 

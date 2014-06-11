@@ -7,7 +7,8 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <s:form action="#" data-abide="abide" validate="true">
+        <s:url action="search-taxis" var="searchTaxisURL" namespace="taxis" />
+        <s:form action="/%{searchTaxisURL}" data-abide="abide" validate="true">
             <fieldset class="fieldset-border">
 
                 <!-- Row Country -->
@@ -16,7 +17,7 @@
                         <s:label value="Country : " cssClass="right inline" />
                     </div>
                     <div class="large-10 columns">
-                        <s:select list="countries" listKey="id" listValue="name" headerKey="-1" headerValue="Please Select" name="country" id="country" required="true" />
+                        <s:select list="countries" listKey="value" listValue="key" headerKey="-1" headerValue="Please Select" name="country" id="country" required="true" />
                         <small class="error">You need to choose a Country.</small>
                     </div>
                 </div>
@@ -62,7 +63,7 @@
                     <div class="large-5 columns">
                         <div class="row">
                             <div class="large-2 columns">
-                                <s:textfield value="1" id="passengers" readonly="true" cssClass="input-center" />
+                                <s:textfield value="1" id="passengers" name="passengers" readonly="true" cssClass="input-center" />
                             </div>
                             <div class="large-10 columns" style="padding-top: 2%;">
                                 <!--<div id="slider"></div> -->
@@ -141,19 +142,19 @@
                     </div>
                     <div class="large-4 columns">
                         <sj:datepicker name="end_time" id="end_time" placeholder="Choose a Time" showOn="focus" readonly="true"
-                                       timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" required="true"/>
+                                       timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" />
                         <small class="error" style="width: 289px;margin-top: 0 !important">
                             You need to choose an hour and minutes.
                         </small>
                     </div>
                 </div>
-                        <div class="row">
-            <div class="large-6 large-centered columns" style="padding-top: 2%;">
-                <s:submit type="button" cssClass="button small radius expand" >
-                    <i class="fi-magnifying-glass"></i> Search
-                </s:submit>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="large-6 large-centered columns" style="padding-top: 2%;">
+                        <s:submit type="button" cssClass="button small radius expand" >
+                            <i class="fi-magnifying-glass"></i> Search
+                        </s:submit>
+                    </div>
+                </div>
             </fieldset>            
         </s:form>       
     </div>
