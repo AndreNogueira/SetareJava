@@ -20,7 +20,7 @@ public class CityDAO extends AbstractDAO<City> {
     
     private Map<String,String> createMapCities(List<City> list){
         Map<String,String> result = new TreeMap<>();
-        for(City c :list)  result.put(c.getId().toString(),c.getName());
+        for(City c :list)  result.put(c.getName(),c.getId().toString());
         return result;
     }
     
