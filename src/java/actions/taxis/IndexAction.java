@@ -2,15 +2,14 @@ package actions.taxis;
 
 import com.opensymphony.xwork2.ActionSupport;
 import dao.CountryDAO;
-import java.util.List;
-import model.Country;
+import java.util.Map;
 import org.apache.struts2.convention.annotation.Namespace;
 
 @Namespace("/taxis")
 public class IndexAction extends ActionSupport {
     
     private CountryDAO countryDAO;
-    private List<Country> countries;
+    private Map<String,String> countries;
     
     public IndexAction() {
     }
@@ -23,11 +22,11 @@ public class IndexAction extends ActionSupport {
     }
     
     /* Getters and Setters */
-    public List<Country> getCountries() {
+    public Map<String,String> getCountries() {
         return countries;
     }
 
-    public void setCountries(List<Country> countries) {
+    public void setCountries(Map<String,String> countries) {
         this.countries = countries;
     }
     
