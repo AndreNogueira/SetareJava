@@ -1,0 +1,383 @@
+#sub{
+  margin: 0 0 -140px;
+  position: relative;
+  background-color: #489AE3;
+  -moz-box-shadow: inset 0 0 10px rgba(0,0,0,0.5);  
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  padding: 50px 0 172px !important;
+}
+
+.lifestyle_img{
+  background-image: url(../images/cars/MainImages/lifestyle_bg_no_blur.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.content {
+  width: 1000px;
+  margin: 0 auto;
+  color: #555;
+}
+
+#reviewcentre em {
+  display: inline-block;
+  height: 30px;
+  line-height: 26px;
+  width: 32px;
+  background-image: url(../images/cars/MainImages/img-1st.png) ;  //alterei cenas aqui
+  text-align: center;
+  padding: 2px 0;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  font-size: 0.9em;
+  font-style: normal;
+}
+
+
+
+p#reviewcentre {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#reviewcentre span {
+  display: inline-block;
+  background-image: url(../images/cars/MainImages/img-reviewcentre.png) ;
+  padding: 0 0 10px 0;
+  text-align: left;
+  text-indent: -9999px;
+  width: 124px;
+}
+
+#sub span {
+  display: inline-block;
+  background-image: url(../images/cars/MainImages/img-reviewcentre.png);
+  padding: 0 0 10px 0;
+  text-align: left;
+  text-indent: -9999px;
+  width: 124px;
+}
+
+#title {
+  height: 56px;
+  width: 100%;
+  line-height: 56px;
+  color: #ffffff;
+}
+
+#subTitle {
+  height: 36px;
+  width: 100%;
+  line-height: 36px;
+  margin-top: -1px;
+  color: wheat;
+}
+
+#title h1 {
+  background-image: url(../images/cars/MainImages/title_bg_block.png);
+  float: left;
+  padding: 8px 15px 0px;
+  color: #ffffff;
+}
+
+#h1sub {
+  background-image: url(../images/cars/MainImages/title_bg_block.png);
+  float: left;
+  padding: 0px 15px 0px;
+}
+
+#title_logos{
+  font-size: 1.375em;
+  font-weight: bold;
+  color: #1B65A4;
+}
+
+.subsidiaries_list{
+  margin: 3px;
+}
+
+.car_index_table{
+  height: 100%;
+  width: 100%;
+}
+
+#table_left_column{
+
+}
+
+#table_right_column{
+
+}
+
+#search_box{
+  background: linear-gradient(to bottom, #f5d361 0%,#e7bf3b 100%);
+  border-radius: 7px;
+}
+
+.fullHeight{
+  margin-bottom: 100%;
+}
+
+.area{
+  height: 570px;
+  width: 50%;
+  text-align: center;
+  display:table-cell;
+  vertical-align:middle;
+}
+
+
+#callHours {
+  font-size: 1.5em !important;
+  padding: 25px 0 0px !important;
+}
+#callus {
+  font-size: 1.0em !important;
+  padding: 0px 0 25px !important;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  color: #749E3A;
+
+}
+
+#progress {
+  width: 980px;
+  border: 1px solid #ddd;
+  background: #eee;
+  margin: 0;
+  padding: 0;
+  float: left;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: -15px;
+}
+
+#progress ul li.active {
+  border: none;
+  background-image: url(../images/cars/SearchResults/step_arrow_right_right.png);
+}
+
+#progress ul li.frist.active .before {
+  background: #E4E4E4;
+}
+#progress ul li.active .before {
+  content: '';
+  display: block;
+  float: left;
+  height: 30px;
+  width: 20px;
+  background-image: url(../images/cars/SearchResults/step_arrow_left.png);
+  margin: 0 -20px 0 0;
+  padding: 0;
+}
+
+#progress ul li.next {
+  width: auto;
+  border: none;
+  background-image: url(../images/cars/SearchResults/step_arrow_right.png);
+  background-color: #eee;
+}
+
+#progress ul li {
+  float: left;
+  position: relative;
+  min-width: 325px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  background: #eee;
+  text-align: center;
+  color: rgba(85, 85, 85, 0.84);
+  font-size: 15px;
+}
+
+#progress ul li.passed span.ticks {
+  display: inline-block;
+  zoom: 1;
+  width: auto;
+  margin: 0 0 -5px 2px;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  background-image: url(../images/cars/SearchResults/step_tick_green_sm.png);
+}
+
+#progress ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #eee;
+  list-style: none inside;
+}
+
+#search_box_results{
+  background: linear-gradient(to bottom, #f5d361 0%, #e7bf3b 100%);
+  border-radius: 7px;
+
+}
+
+#search_box_results select {
+  height: 1.5125rem;
+  padding: 0 !important;
+  font-size: 0.775rem !important;
+}
+
+#search_box_results label {
+  padding: 0px;
+  margin-right: -15px;
+}
+
+#search_box_results input{
+  font-size: 0.775rem !important;
+}
+
+#p_date_hour{
+  font-size: 13px;
+}
+#results_list{
+  background-color: #DDD;
+  border-radius: 7px 7px 7px 0;
+  margin-left: -5px;
+  margin-bottom: 30px;
+}
+
+#result_list_inside_panel{
+  background-color: #f4f4f4;
+  border-radius: 7px 7px 7px 7px;
+  margin: 7px;
+  margin-left: -7px;
+  margin-right: -7px;
+}
+
+#results_main_container{
+  margin-top: 20px;
+}
+.provided_by{
+  border-bottom: #ababab 1px solid;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+#terms_conditions{
+  margin-left: -21px;
+  margin-bottom: -43px;
+}
+
+#terms_conditions p {
+  background-color: #DDD;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#CCC));
+  background-image: -moz-linear-gradient( center top, #DDD 0%, #CCC 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#cccccc');
+  border: 1px solid #DDD;
+  border-top: none;
+  padding: 0 8px 4px 8px;
+  border-radius: 0 0 12px 12px;
+  -moz-border-radius: 0 0 12px 12px;
+  -khtml-border-radius: 0 0 12px 12px;
+  -webkit-border-radius: 0 0 12px 12px;
+  font-size: 12px;
+  color: #444;
+  text-shadow: 1px 1px 0 #F4F4F4;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+#price_column{
+  background-color: #C9D9F0;
+  border-radius: 0 7px 7px 0;
+  height:  202px ;
+}
+
+#price_column p {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+#car_info p{
+  font-size: 12px !important;
+  font-weight: bold;
+  display: inline;
+}
+
+#border_left{
+  border-right: #ababab 1px solid;
+}
+
+
+.car_info_margin{
+  margin-top: 9px !important;
+}
+
+.car_image{
+  margin-top: 5px;
+}
+
+#border_car_rent_price{
+  border-radius: 7px 7px 0 0;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-style: none;
+}
+
+#border_extra_equipment_price{
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+#border_total_price{
+  border-radius: 0 0 7px 7px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgb(69, 129, 218);
+}
+#border_image_norton{
+  border-radius: 7px 7px 7px 7px;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  margin-top: 20px;
+  border-color: rgb(189, 189, 189);
+}
+
+#middle_border{
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+#top_border{
+  border-radius: 7px 7px 0 0;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-style: none;
+}
+
+#bottom_border{
+  border-radius: 0 0 7px 7px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-style: none;
+}
+#user_info_form{
+  border-radius: 7px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgb(226, 228, 228);
+  border-color: rgb(226, 228, 228);
+}
+#progress a{
+  color: #5d82ba;
+  background: none  ;
+}
+
+
+

@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundicons/foundation-icons.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/home.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/taxis.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/cars.css">
         <!-- JS files-->
         <sj:head jqueryui="true" jquerytheme="flick"/>
         <script src="${pageContext.request.contextPath}/assets/js/foundation/modernizr.js"></script>
@@ -42,7 +43,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <s:url action="#" namespace="cars" var="carsURL" />
+                                <s:url action="index" namespace="cars" var="carsURL" />
                                 <s:a href="/SetareJava/%{carsURL}" namespace="cars">Cars</s:a>
                             </li>
                             <li class="divider"></li>
