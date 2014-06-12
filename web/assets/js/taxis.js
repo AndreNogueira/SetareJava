@@ -95,7 +95,7 @@ $(document).ready(function () {
         $.getJSON(url , {id:id}, function (data) {
             html_select.attr('disabled', false);
             $.each(data.names, function (index, value) {
-                var option = $('<option>').text(value).attr('value', index);
+                var option = $('<option>').text(index).attr('value', value);
                 html_select.append(option);
             });
         });
