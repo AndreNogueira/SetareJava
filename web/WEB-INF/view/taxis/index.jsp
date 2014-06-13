@@ -66,7 +66,6 @@
                                 <s:textfield value="1" id="passengers" name="passengers" readonly="true" cssClass="input-center" />
                             </div>
                             <div class="large-10 columns" style="padding-top: 2%;">
-                                <!--<div id="slider"></div> -->
                                 <sj:slider id="slider" min="1" max="55" range="min" onSlideTopics="slideSlider"/>
                             </div>
                         </div>

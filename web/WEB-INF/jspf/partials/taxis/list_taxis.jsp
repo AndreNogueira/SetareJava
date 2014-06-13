@@ -54,7 +54,7 @@
             <!-- Taxi Button -->
             <div class="large-3 columns" style="padding-top: 5%;">
                 <s:url action="select-taxi" namespace="taxis" var="selectTaxiURL" />
-                <s:form action="/%{selectTaxiURL" namespace="taxis" >
+                <s:form action="/%{selectTaxiURL}" namespace="taxis" >
                     <s:hidden name="idTaxi" value="%{taxi.id}" />
                     <s:hidden name="cost" value="%{cost}" />                    
                     <s:submit type="button" cssClass="button small radius">
