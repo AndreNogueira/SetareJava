@@ -13,7 +13,7 @@ public class CountryDAO extends AbstractDAO<Country>{
     public Map<String,String> taxis(){
         Criteria c = super.getSession().createCriteria(Country.class,"country");
         c.createCriteria("cities", "city", JoinType.INNER_JOIN, Restrictions.eq("city.isTaxi", true));
-        c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);        
         return createMapCountry(c.list());        
     }
     
