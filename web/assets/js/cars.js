@@ -25,13 +25,13 @@ $(document).ready(function () {
         $('select#pick_subsidiary').attr('disabled', true);
         $('select#pick_city > option:gt(0)').remove();
         $('select#pick_subsidiary > option:gt(0)').remove();
-        //$('select#drop_country').val('Please Select');
-        //$('select#drop_city > option:gt(0)').remove();
-        //$('select#drop_city').attr('disabled', true);
-        //$('select#drop_subsidiary > option:gt(0)').remove();
+        $('select#drop_country').val('Please Select');
+        $('select#drop_city > option:gt(0)').remove();
+        $('select#drop_city').attr('disabled', true);
+        $('select#drop_subsidiary > option:gt(0)').remove();
         
         if (pick_country_id !== '') {            
-            fill_data('/SetareJava/cars/pick-city', pick_country_id, pick_city);
+            fill_data('/SetareJava/cars/pick-city', pick_country_id,"", pick_city);
         } else {
             pick_city.attr('disabled', true);
         }
@@ -42,15 +42,15 @@ $(document).ready(function () {
         var pick_subsidiary = $('select#pick_subsidiary');
         
         $('select#pick_subsidiary > option:gt(0)').remove();
-        //$('select#drop_country').val('Please Select');
-        //$('select#drop_city > option:gt(0)').remove();
-        //$('select#drop_city').attr('disabled', true);
-        //$('select#drop_subsidiary > option:gt(0)').remove();
-        //$('select#drop_subsidiary').attr('disabled',true);
+        $('select#drop_country').val('Please Select');
+        $('select#drop_city > option:gt(0)').remove();
+        $('select#drop_city').attr('disabled', true);
+        $('select#drop_subsidiary > option:gt(0)').remove();
+        $('select#drop_subsidiary').attr('disabled',true);
         $('select#pick_subsidiary > option:gt(0)').remove();
         
         if (pick_city_id !== '') {
-            fill_data('/SetareJava/cars/pick-subsidiary', pick_city_id, pick_subsidiary);
+            fill_data('/SetareJava/cars/pick-subsidiary', pick_city_id,"", pick_subsidiary);
         } else {
             pick_subsidiary.attr('disabled', true);
         }
@@ -58,7 +58,7 @@ $(document).ready(function () {
     
     $('select#pick_subsidiary').on('change', function () {
         var pick_subsidiary_id = $(this).val();
-        if(pick_subsidiary_id != ''){
+        if(pick_subsidiary_id !== ''){
             
             var drop_country =  $('select#drop_country');
             var pick_country =  $('select#pick_country');
@@ -73,7 +73,7 @@ $(document).ready(function () {
             
             get_agency(subsidiary_id,function(agency_id){
                 drop_city.empty().append("<option value='0'>Please Select</option>");
-                fill_data('drop_city/country/'+pick_country.val()+'/agency/'+agency_id,drop_city);
+                fill_data('/SetareJava/cars/drop-city', pick_country.val(),agency_id,drop_city);
             });
         }
     });
@@ -85,8 +85,10 @@ $(document).ready(function () {
         var pick_subsidiary = $('select#pick_subsidiary');
         
         get_agency(pick_subsidiary.val(),function(agency_id){
+            console.log("Pick Subsidiary :"+pick_subsidiary.val());
+            console.log("Agency Id :"+agency_id);
             drop_subsidiary.empty().append("<option value='0'>Please Select</option>");
-            fill_data('drop_subsidiary/city/'+drop_city.val()+'/agency/'+agency_id,drop_subsidiary);
+            fill_data('/SetareJava/cars/drop-subsidiary',drop_city.val(),agency_id,drop_subsidiary);
         });
     });
     
@@ -154,27 +156,38 @@ $(document).ready(function () {
     });
     
     
-    function fill_data(url, id,html_select) {
-        $.getJSON(url, {id:id}, function (data) {
-            console.log(html_select)
+    function fill_data(url, id,id2, html_select) {        
+        $.getJSON(url , {id:id,id2:id2}, function (data) {
             html_select.attr('disabled', false);
-            $.each(data.names, function (index, value) {                
-                var option = $('<option>').text(value).attr('value', index);
+            $.each(data.names, function (index, value) {
+                var option = $('<option>').text(index).attr('value', value);
                 html_select.append(option);
             });
         });
-    }    
+    }  
     
     
     
     
     function get_agency(subsidiary_id,callback){
         var agency_id;
-        $.get('get_agency/'+subsidiary_id.toString(), function (data) {
+        $.getJSON('/SetareJava/cars/get-agency',{id:subsidiary_id}, function (data) {
+                agency_id = data.id_agency;
+                if(typeof callback === "function") callback(agency_id);            
+        });
+    }
+    
+    /*
+    function get_agency(url, id) {        
+        var agency_id;
+        $.getJSON(url , {id:id}, function (data) {            
             $.each(data, function (index, value) {
                 agency_id = value.id;
                 if(typeof callback === "function") callback(agency_id);
+                
             });
-        }, "json");
-    }
+        });
+    }  */
+    
+    
 });

@@ -22,7 +22,15 @@ import org.apache.struts2.convention.annotation.Result;
 @Result(type = "json")
 public class DropCityAction extends ActionSupport {
     private Integer id;
-   
+    private Integer id2;
+    
+    public Integer getId2() {
+        return id2;
+    }
+    
+    public void setId2(Integer id2) {
+        this.id2 = id2;
+    }
     
     
     private Map<String,String> names;
@@ -30,15 +38,11 @@ public class DropCityAction extends ActionSupport {
     
     @Override
     public String execute(){
-        //load_drop_cities(id);
-        return SUCCESS;
-    }
-    
-    public void load_drop_cities(int pick_country_id, int agency_id){
         this.cityDAO = new CityDAO();
-        //Map<String,String> carCities = this.cityDAO.cities_with_subsidiaries(pick_country_id);
-        //setNames(carCities);
-    }
+        Map<String,String> carCities = this.cityDAO.cities_with_same_agency(id, id2);
+        setNames(carCities);
+        return SUCCESS;
+    } 
     
     public Map<String, String> getNames() {
         return names;
@@ -52,6 +56,6 @@ public class DropCityAction extends ActionSupport {
         this.id = id;
     }
     
-
+    
     
 }

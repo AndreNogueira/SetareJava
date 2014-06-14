@@ -38,11 +38,8 @@
                 <div class="large-3 columns">
                     <s:label name="pick_city" value="City : " cssClass="right_inline"></s:label>    
                     </div>
-                    <div class="large-9 columns">
-                        
+                    <div class="large-9 columns">                        
                     <s:select name="pick_city" list="%{{}}" headerKey="-1" headerValue="Please Select" id="pick_city" required="true" disabled="true" />
-                    
-                    
                     <small class="error">You need to choose a City.</small>
                 </div>
             </div>
@@ -60,8 +57,8 @@
             <!-- Checkbox Deliver in the same place -->
             <div class="row">
                 <div class="large-9 large-offset-3 columns">
-                    <#%= check_box_tag(:return_at_same_location, value = "yes", checked = true) %>
-                    <s:label name="return_at_same_location" value="Return at same location" ></s:label>    
+                    <s:checkbox id="return_at_same_location" name="return_at_same_location" value="true"/>
+                    <s:label name="pick_subsidiary">Return at same Location</s:label>  
                     </div>
                 </div>
                 
@@ -78,119 +75,119 @@
                         <s:label name="drop_country" value="Country : " cssClass="right_inline"></s:label>       
                         </div>
                         <div class="large-9 columns">
-                            <#%= select_tag :drop_country, options_from_collection_for_select(@countries, 'id', 'name'), prompt: 'Please Select', disabled: true,id: 'drop_country' %>
-                        </div>
+                        <s:select list="countries" listKey="id" listValue="name" headerKey="-1" headerValue="Please Select" name="drop_country" id="drop_country" required="true" />
                     </div>
-                    <!-- drop cities select -->
-                    <div class="row">
-                        <div class="large-3 columns">
-                        <s:label name="drop_country" value="City : " cssClass="right_inline"></s:label>  
+                </div>
+                <!-- drop cities select -->
+                <div class="row">
+                    <div class="large-3 columns">
+                        <s:label name="drop_city" value="City : " cssClass="right_inline"></s:label>  
                         </div>
                         <div class="large-9 columns">
-                            <#%= select_tag :drop_city, nil, prompt: 'Please Select', disabled: true, id: 'drop_city' %>
-                        </div>
+                        <s:select name="drop_city" list="%{{}}" headerKey="-1" headerValue="Please Select" id="drop_city" required="true" disabled="true" />
                     </div>
-                    <!-- drop subsidiary select -->
-                    <div class="row">
-                        <div class="large-3 columns">
+                </div>
+                <!-- drop subsidiary select -->
+                <div class="row">
+                    <div class="large-3 columns">
                         <s:label name="drop_subsidiary" value="Subsidiary : " cssClass="right_inline"></s:label>  
                         </div>
                         <div class="large-9 columns">
-                            <#%= select_tag :drop_subsidiary, nil, prompt: 'Please Select', disabled: true, id: 'drop_subsidiary' %>
+                        <s:select name="drop_subsidiary" list="%{{}}" headerKey="-1" headerValue="Please Select" id="drop_subsidiary" required="true" disabled="true" />
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row Date of Pick-Up Time -->
+            <div class="row">
+                
+                <div class="large-6 large-offset-2 columns">
+                    <div class="row collapse">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                Pick-Up Date:
+                            </div>
+                        </div>
+                        <div class="large-10 columns">
+                            <#%= text_field_tag :begin_date, DateTime.now.strftime('%d/%m/%Y'), id: 'begin-datepicker', readonly: true %>
+                        </div>
+                        <div class="large-2 columns">
+                            <#%= button_tag type: 'button', class: 'button large round postfix', id: 'begin-calendar' do %>
+                            <i class="fi-calendar"></i>
+                            <#% end %>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Row Date of Pick-Up Time -->
-                <div class="row">
-                    
-                    <div class="large-6 large-offset-2 columns">
-                        <div class="row collapse">
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    Pick-Up Date:
-                                </div>
-                            </div>
-                            <div class="large-10 columns">
-                                <#%= text_field_tag :begin_date, DateTime.now.strftime('%d/%m/%Y'), id: 'begin-datepicker', readonly: true %>
-                            </div>
-                            <div class="large-2 columns">
-                                <#%= button_tag type: 'button', class: 'button large round postfix', id: 'begin-calendar' do %>
-                                <i class="fi-calendar"></i>
-                                <#% end %>
+                <div class="large-4 columns">
+                    <div class="row collapse">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                Pick-Up Time:
                             </div>
                         </div>
+                        <div class="large-10 columns">
+                            <#%= text_field_tag :timepicker_begin,Time.now.strftime('%H:%M'), id:'begin_timepicker', readonly: true %>
+                        </div>
+                        <div class="large-2 columns">
+                            <#%= button_tag type: 'button',class: 'button large round postfix begin_timepicker_button_trigger' do %>
+                            <i class="fi-clock"></i>
+                            <#% end %>
+                        </div>
                     </div>
-                    
-                    <div class="large-4 columns">
-                        <div class="row collapse">
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    Pick-Up Time:
-                                </div>
+                </div>
+            </div>
+            
+            <!-- Row Date of Drop-Off Time -->
+            <div class="row">
+                
+                <div class="large-6 large-offset-2 columns">
+                    <div class="row collapse">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                Drop-Off Date:
                             </div>
-                            <div class="large-10 columns">
-                                <#%= text_field_tag :timepicker_begin,Time.now.strftime('%H:%M'), id:'begin_timepicker', readonly: true %>
-                            </div>
-                            <div class="large-2 columns">
-                                <#%= button_tag type: 'button',class: 'button large round postfix begin_timepicker_button_trigger' do %>
-                                <i class="fi-clock"></i>
-                                <#% end %>
-                            </div>
+                        </div>
+                        <div class="large-10 columns">
+                            <#%= text_field_tag :end_date, DateTime.now.strftime('%d/%m/%Y'), id: 'end-datepicker', readonly: true %>
+                        </div>
+                        <div class="large-2 columns">
+                            <#%= button_tag type: 'button', class: 'button large round postfix', id: 'end-calendar' do %>
+                            <i class="fi-calendar"></i>
+                            <#% end %>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Row Date of Drop-Off Time -->
-                <div class="row">
-                    
-                    <div class="large-6 large-offset-2 columns">
-                        <div class="row collapse">
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    Drop-Off Date:
-                                </div>
-                            </div>
-                            <div class="large-10 columns">
-                                <#%= text_field_tag :end_date, DateTime.now.strftime('%d/%m/%Y'), id: 'end-datepicker', readonly: true %>
-                            </div>
-                            <div class="large-2 columns">
-                                <#%= button_tag type: 'button', class: 'button large round postfix', id: 'end-calendar' do %>
-                                <i class="fi-calendar"></i>
-                                <#% end %>
+                <div class="large-4 columns">
+                    <div class="row collapse">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                Drop-Off Time:
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="large-4 columns">
-                        <div class="row collapse">
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    Drop-Off Time:
-                                </div>
-                            </div>
-                            <div class="large-10 columns">
-                                <#%= text_field_tag :timepicker_end,Time.now.strftime('%H:%M'), id:'end_timepicker', readonly: true %>
-                            </div>
-                            <div class="large-2 columns">
-                                <#%= button_tag type: 'button',class: 'button large round postfix end_timepicker_button_trigger' do %>
-                                <i class="fi-clock"></i>
-                                <#% end %>
-                            </div>
+                        <div class="large-10 columns">
+                            <#%= text_field_tag :timepicker_end,Time.now.strftime('%H:%M'), id:'end_timepicker', readonly: true %>
+                        </div>
+                        <div class="large-2 columns">
+                            <#%= button_tag type: 'button',class: 'button large round postfix end_timepicker_button_trigger' do %>
+                            <i class="fi-clock"></i>
+                            <#% end %>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Search Button -->
-                <div class="row">
-                    <div class="large-5 large-centered columns" style="padding-top: 2%;">
-                        <#%= button_tag type: 'submit', class: 'button large radius expand' do %>
-                        <i class="fi-magnifying-glass"></i> Search
-                        <#% end %>
-                    </div>
+            </div>
+            
+            <!-- Search Button -->
+            <div class="row">
+                <div class="large-5 large-centered columns" style="padding-top: 2%;">
+                    <#%= button_tag type: 'submit', class: 'button large radius expand' do %>
+                    <i class="fi-magnifying-glass"></i> Search
+                    <#% end %>
                 </div>
-                
-                
+            </div>
+            
+            
         </s:form>
     </div>
     
