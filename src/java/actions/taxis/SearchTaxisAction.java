@@ -35,6 +35,7 @@ public class SearchTaxisAction extends ActionSupport implements ModelDriven<Taxi
                                        taxiFormSearch.getPassengers(), 
                                        taxiFormSearch.getType_trip());
         setTaxiResults(ts.search());
+        System.out.println(taxiFormSearch.getBegin_date());
         return SUCCESS;
     }
     
@@ -49,6 +50,14 @@ public class SearchTaxisAction extends ActionSupport implements ModelDriven<Taxi
         return taxiResults;
     }
 
+    public TaxiLocations getTaxiLocations() {
+        return taxiLocations;
+    }
+
+    public void setTaxiLocations(TaxiLocations taxiLocations) {
+        this.taxiLocations = taxiLocations;
+    }
+    
     public void setTaxiResults(Set<TaxiCost> taxiResults) {
         this.taxiResults = taxiResults;
     }

@@ -1,13 +1,15 @@
 package actions.taxis;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.convention.annotation.Namespace;
 
-public class SelectTaxi extends ActionSupport {
+@Namespace("/taxis")
+public class SelectTaxiAction extends ActionSupport {
     
     private Integer idTaxi;
     private double cost;
     
-    public SelectTaxi() {
+    public SelectTaxiAction() {
     }
     
     @Override
