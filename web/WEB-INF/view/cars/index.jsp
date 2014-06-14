@@ -12,7 +12,7 @@
 <div class="row">
     
     <div class="large-6 columns" id="search_box">
-        <s:form action="cars-search-results" namespace="/cars" data-abide="abide">
+        <s:form action="search-results" namespace="/cars" data-abide="abide">
             <!-- title search box -->
             <div class="row">
                 <div class="large-12 large-centered columns">
@@ -25,7 +25,7 @@
                     <s:label name="pick_country" value="Country : " cssClass="right_inline"></s:label>          
                     </div>
                     <div class="large-9 columns">
-                    <s:select list="countries" listKey="id" listValue="name" headerKey="-1" headerValue="Please Select" name="country" id="pick_country" required="true" />
+                    <s:select list="countries" listKey="id" listValue="name" headerKey="-1" headerValue="Please Select" name="pick_country" id="pick_country" required="true" />
                     <small class="error">You need to choose a Country.</small>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="large-10 columns">
-                            <sj:datepicker id="begin_date" name="begin_date" value="today" 
+                            <sj:datepicker id="begin_date" name="pick_date" value="today" 
                                            minDate="today" displayFormat="dd/mm/yy" showOn="focus" readonly="true"/>
                         </div>
                         <div class="large-2 columns">
@@ -123,7 +123,7 @@
                             </div>
                         </div>
                         <div class="large-12 columns">
-                            <sj:datepicker name="timepicker_begin" id="begin_time" placeholder="Choose a Time" showOn="focus" readonly="true"
+                            <sj:datepicker name="pick_time" id="begin_time" placeholder="Choose a Time" showOn="focus" readonly="true"
                                            timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" required="true"/>
                             <small class="error" style="width: 289px;margin-top: 0 !important">
                                 You need to choose an hour and minutes.
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         <div class="large-10 columns">
-                            <sj:datepicker id="end_date" name="end_date" value="tomorrow"
+                            <sj:datepicker id="end_date" name="drop_date" value="tomorrow"
                                            displayFormat="dd/mm/yy" showOn="focus" readonly="true" minDate="today" />
                             
                         </div>
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                         <div class="large-12 columns">
-                            <sj:datepicker name="timepicker_end" id="end_time" placeholder="Choose a Time" showOn="focus" readonly="true"
+                            <sj:datepicker name="drop_time" id="end_time" placeholder="Choose a Time" showOn="focus" readonly="true"
                                            timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" />
                             <small class="error" style="width: 289px;margin-top: 0 !important">
                                 You need to choose an hour and minutes.
