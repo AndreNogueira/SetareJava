@@ -13,10 +13,6 @@
     
     <div class="large-6 columns" id="search_box">
         <s:form action="cars-search-results" namespace="/cars" data-abide="abide">
-            
-            
-            
-            
             <!-- title search box -->
             <div class="row">
                 <div class="large-12 large-centered columns">
@@ -97,11 +93,10 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Row Date of Pick-Up Time -->
             <div class="row">
                 
-                <div class="large-6 large-offset-2 columns">
+                <div class="large-5 large-offset-3 columns">
                     <div class="row collapse">
                         <div class="row">
                             <div class="large-12 columns">
@@ -109,12 +104,13 @@
                             </div>
                         </div>
                         <div class="large-10 columns">
-                            <#%= text_field_tag :begin_date, DateTime.now.strftime('%d/%m/%Y'), id: 'begin-datepicker', readonly: true %>
+                            <sj:datepicker id="begin_date" name="begin_date" value="today" 
+                                           minDate="today" displayFormat="dd/mm/yy" showOn="focus" readonly="true"/>
                         </div>
                         <div class="large-2 columns">
-                            <#%= button_tag type: 'button', class: 'button large round postfix', id: 'begin-calendar' do %>
-                            <i class="fi-calendar"></i>
-                            <#% end %>
+                            <s:submit type="button" cssClass="button small round postfix" id="begin-calendar">
+                                <i class="fi-calendar"></i>
+                            </s:submit>
                         </div>
                     </div>
                 </div>
@@ -126,14 +122,13 @@
                                 Pick-Up Time:
                             </div>
                         </div>
-                        <div class="large-10 columns">
-                            <#%= text_field_tag :timepicker_begin,Time.now.strftime('%H:%M'), id:'begin_timepicker', readonly: true %>
-                        </div>
-                        <div class="large-2 columns">
-                            <#%= button_tag type: 'button',class: 'button large round postfix begin_timepicker_button_trigger' do %>
-                            <i class="fi-clock"></i>
-                            <#% end %>
-                        </div>
+                        <div class="large-12 columns">
+                            <sj:datepicker name="timepicker_begin" id="begin_time" placeholder="Choose a Time" showOn="focus" readonly="true"
+                                           timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" required="true"/>
+                            <small class="error" style="width: 289px;margin-top: 0 !important">
+                                You need to choose an hour and minutes.
+                            </small>                           
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -141,7 +136,7 @@
             <!-- Row Date of Drop-Off Time -->
             <div class="row">
                 
-                <div class="large-6 large-offset-2 columns">
+                <div class="large-5 large-offset-3 columns">
                     <div class="row collapse">
                         <div class="row">
                             <div class="large-12 columns">
@@ -149,12 +144,14 @@
                             </div>
                         </div>
                         <div class="large-10 columns">
-                            <#%= text_field_tag :end_date, DateTime.now.strftime('%d/%m/%Y'), id: 'end-datepicker', readonly: true %>
+                            <sj:datepicker id="end_date" name="end_date" value="tomorrow"
+                                           displayFormat="dd/mm/yy" showOn="focus" readonly="true" minDate="today" />
+                            
                         </div>
                         <div class="large-2 columns">
-                            <#%= button_tag type: 'button', class: 'button large round postfix', id: 'end-calendar' do %>
-                            <i class="fi-calendar"></i>
-                            <#% end %>
+                            <s:submit type="button" cssClass="button small round postfix" id="end-calendar">
+                                <i class="fi-calendar"></i>
+                            </s:submit>
                         </div>
                     </div>
                 </div>
@@ -166,13 +163,12 @@
                                 Drop-Off Time:
                             </div>
                         </div>
-                        <div class="large-10 columns">
-                            <#%= text_field_tag :timepicker_end,Time.now.strftime('%H:%M'), id:'end_timepicker', readonly: true %>
-                        </div>
-                        <div class="large-2 columns">
-                            <#%= button_tag type: 'button',class: 'button large round postfix end_timepicker_button_trigger' do %>
-                            <i class="fi-clock"></i>
-                            <#% end %>
+                        <div class="large-12 columns">
+                            <sj:datepicker name="timepicker_end" id="end_time" placeholder="Choose a Time" showOn="focus" readonly="true"
+                                           timepicker="true" timepickerOnly="true" timepickerStepHour="1" timepickerStepMinute="5" />
+                            <small class="error" style="width: 289px;margin-top: 0 !important">
+                                You need to choose an hour and minutes.
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -181,13 +177,11 @@
             <!-- Search Button -->
             <div class="row">
                 <div class="large-5 large-centered columns" style="padding-top: 2%;">
-                    <#%= button_tag type: 'submit', class: 'button large radius expand' do %>
-                    <i class="fi-magnifying-glass"></i> Search
-                    <#% end %>
+                    <s:submit type="button" cssClass="button large radius expand" >
+                        <i class="fi-magnifying-glass"></i> Search
+                    </s:submit>
                 </div>
-            </div>
-            
-            
+            </div>            
         </s:form>
     </div>
     
