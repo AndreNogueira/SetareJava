@@ -24,8 +24,8 @@ public class PickCityAction extends ActionSupport{
     
     private Integer id;
     private Map<String,String> names;
-    private CityDAO cityDAO;
-           
+    private Integer id2;
+    
     @Override
     public String execute() throws Exception{
         load_pick_cities(id);
@@ -33,8 +33,8 @@ public class PickCityAction extends ActionSupport{
     }
     
     public void load_pick_cities(int pick_country_id){
-        this.cityDAO = new CityDAO();
-        Map<String,String> carCities = this.cityDAO.cities_with_subsidiaries(pick_country_id);
+        CityDAO cityDAO = new CityDAO();
+        Map<String,String> carCities = cityDAO.cities_with_subsidiaries(pick_country_id);
         setNames(carCities);
     }
     
@@ -48,6 +48,13 @@ public class PickCityAction extends ActionSupport{
     
     public void setId(Integer id) {
         this.id = id;
+    }
+    public Integer getId2() {
+        return id2;
+    }
+    
+    public void setId2(Integer id2) {
+        this.id2 = id2;
     }
     
 }

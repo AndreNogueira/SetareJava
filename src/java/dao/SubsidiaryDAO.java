@@ -9,11 +9,9 @@ package dao;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import model.City;
 import model.Subsidiary;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-
 /**
  *
  * @author pjmaia
@@ -22,18 +20,23 @@ public class SubsidiaryDAO extends AbstractDAO<Subsidiary>{
     
     
     public Map<String,String> pick_subsidiaries(Integer city_id){
-        Criteria c = super.getSession().createCriteria(Subsidiary.class,"subsidiary");     
+        Criteria c = super.getSession().createCriteria(Subsidiary.class,"subsidiary");
         c.add(Restrictions.eq("city.id", city_id));
         c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return createMapSubsidiaries(c.list());
-    }    
+    }
     
     private Map<String,String> createMapSubsidiaries(List<Subsidiary> list){
         Map<String,String> result = new TreeMap<>();
-        for(Subsidiary c :list)  result.put(c.getId().toString(),c.getName());
+        for(Subsidiary c :list)  result.put(c.getName(),c.getId().toString());
         return result;
     }
     
-
-    
+    public Map<String,String> drop_subsidiaries(Integer city_id, Integer agency_id){
+        Criteria c = super.getSession().createCriteria(Subsidiary.class,"subsidiary");
+        c.add(Restrictions.eq("city.id", city_id));
+        c.add(Restrictions.eq("agency.id", agency_id));        
+        c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return createMapSubsidiaries(c.list());
+    }
 }

@@ -22,9 +22,9 @@
 
 #reviewcentre em {
   display: inline-block;
-  height: 30px;
+  height: 29px;
   line-height: 26px;
-  width: 32px;
+  width: 29px;
   background-image: url(../images/cars/MainImages/img-1st.png) ;  //alterei cenas aqui
   text-align: center;
   padding: 2px 0;
@@ -44,7 +44,7 @@ p#reviewcentre {
 #reviewcentre span {
   display: inline-block;
   background-image: url(../images/cars/MainImages/img-reviewcentre.png) ;
-  padding: 0 0 10px 0;
+  padding: 0 0 8px 0;
   text-align: left;
   text-indent: -9999px;
   width: 124px;

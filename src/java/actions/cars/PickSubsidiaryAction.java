@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 package actions.cars;
 
@@ -24,9 +24,10 @@ import dao.SubsidiaryDAO;
 public class PickSubsidiaryAction extends ActionSupport{
     
     private Integer id;
-    private Map<String,String> names;
-    private SubsidiaryDAO subsidiaryDAO;
-           
+    private Map<String,String> names;    
+    private Integer id2;
+        
+    
     @Override
     public String execute() throws Exception{
         load_pick_subsidiaries(id);
@@ -34,8 +35,8 @@ public class PickSubsidiaryAction extends ActionSupport{
     }
     
     public void load_pick_subsidiaries(int pick_city_id){
-        this.subsidiaryDAO = new SubsidiaryDAO();
-        Map<String,String> carCities = this.subsidiaryDAO.pick_subsidiaries(pick_city_id);
+        SubsidiaryDAO subsidiaryDAO = new SubsidiaryDAO();
+        Map<String,String> carCities = subsidiaryDAO.pick_subsidiaries(pick_city_id);
         setNames(carCities);
     }
     
@@ -51,4 +52,11 @@ public class PickSubsidiaryAction extends ActionSupport{
         this.id = id;
     }
     
+    public Integer getId2() {
+        return id2;
+    }
+    
+    public void setId2(Integer id2) {
+        this.id2 = id2;
+    }
 }
