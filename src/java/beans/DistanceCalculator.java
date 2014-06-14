@@ -32,8 +32,8 @@ public class DistanceCalculator {
         }
     }
 
-    private static double transformStringToDouble(String distance) {
-        return new Double(distance.substring(0, distance.length() - 3));
+    private static double transformStringToDouble(String distance) {        
+        return new Double(distance.substring(0, distance.length() - 3).replace(",",""));
     }
 
     private static Document getDocument(URL url) throws DocumentException {
