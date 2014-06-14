@@ -51,7 +51,7 @@ $(document).ready(function () {
     $('input[name=type_trip]').on('change', function () {
         $('div#return_date').slideToggle();
     });
-/*
+    
     $('button#button-edit').on('click', function (event) {
         event.preventDefault();
         var all_inputs = $('fieldset#user-info input');
@@ -66,7 +66,7 @@ $(document).ready(function () {
         }
 
     });
-*/
+    
     $('.tabs .tab-links a').on('click', function (event) {
         var currentAttrValue = $(this).attr('href');
         var tabs = $('.tabs ' + currentAttrValue);
