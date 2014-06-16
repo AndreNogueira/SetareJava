@@ -6,6 +6,8 @@
 
 package beans;
 
+import java.util.Date;
+
 /**
  *
  * @author pjmaia
@@ -18,16 +20,32 @@ public class CarForm {
     private int drop_country;
     private int drop_city;
     private int drop_subsidiary;
-    private String pick_date;
+    private Date pick_date;
     private String pick_time;
-    private String drop_date;
+    private Date drop_date;
     private String drop_time;
     private boolean return_at_same_location;
-
-    public boolean isReturn_at_same_location() {
+    
+    public Date getPick_date() {
+        return pick_date;
+    }
+    
+    public void setPick_date(Date pick_date) {
+        this.pick_date = pick_date;
+    }
+    
+    public Date getDrop_date() {
+        return drop_date;
+    }
+    
+    public void setDrop_date(Date drop_date) {
+        this.drop_date = drop_date;
+    }
+    
+    public boolean getReturn_at_same_location() {
         return return_at_same_location;
     }
-
+    
     public void setReturn_at_same_location(boolean return_at_same_location) {
         this.return_at_same_location = return_at_same_location;
     }
@@ -80,28 +98,12 @@ public class CarForm {
         this.drop_subsidiary = drop_subsidiary;
     }
     
-    public String getPick_date() {
-        return pick_date;
-    }
-    
-    public void setPick_date(String pick_date) {
-        this.pick_date = pick_date;
-    }
-    
     public String getPick_time() {
         return pick_time;
     }
     
     public void setPick_time(String pick_time) {
         this.pick_time = pick_time;
-    }
-    
-    public String getDrop_date() {
-        return drop_date;
-    }
-    
-    public void setDrop_date(String drop_date) {
-        this.drop_date = drop_date;
     }
     
     public String getDrop_time() {

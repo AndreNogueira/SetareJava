@@ -1,4 +1,4 @@
-<div id="sub" class="lifestyle_img">
+    <div id="sub" class="lifestyle_img">
     <div class="content">
         <div id="title">
             <h1 style="font-size: 35px;"><b>The best prices for hire a car in one place - Guaranteed</b></h1>
