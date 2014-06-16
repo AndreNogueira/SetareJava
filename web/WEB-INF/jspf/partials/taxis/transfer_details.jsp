@@ -26,7 +26,7 @@
   <div class="row">
     <div class="large-12 columns">
         <s:label value="Special Request" />
-        <s:textarea name="special_request" cssClass="taxi-textarea" />
+        <s:textarea name="specialRequest" cssClass="taxi-textarea" />
     </div>
   </div>
 </fieldset>

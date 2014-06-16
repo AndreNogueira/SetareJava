@@ -33,7 +33,6 @@ public class SelectTaxiAction extends ActionSupport implements SessionAware {
         fillCreditCards();
         fillMonths();
         fillYears(year, year + 40);
-
         return SUCCESS;
     }
 

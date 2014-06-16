@@ -7,11 +7,11 @@
   <div class="row">
     <div class="large-6 columns">
         <s:label value="Name" />
-        <s:textfield name="name" value="%{#session['user'].name}" readonly="true"/>
+        <s:textfield name="user.name" value="%{#session['user'].name}" readonly="true"/>
     </div>
     <div class="large-6 columns">
         <s:label value="E-mail" />
-        <s:textfield name="email" value="%{#session['user'].email}" readonly="true" />
+        <s:textfield name="user.email" value="%{#session['user'].email}" readonly="true" />
     </div>
   </div>
 
@@ -19,11 +19,11 @@
   <div class="row">
     <div class="large-6 columns">
         <s:label value="BI" />
-        <s:textfield name="bi" value="%{#session['user'].bi}" readonly="true" />
+        <s:textfield name="user.bi" value="%{#session['user'].bi}" readonly="true" />
     </div>
     <div class="large-6 columns">        
         <s:label value="Phone Number" />
-        <s:textfield name="phoneNumber" value="%{#session['user'].phoneNumber}" readonly="true" />
+        <s:textfield name="user.phoneNumber" value="%{#session['user'].phoneNumber}" readonly="true" />
     </div>
   </div>
 
@@ -31,11 +31,11 @@
   <div class="row">
     <div class="large-6 columns">
         <s:label value="NIF" />
-        <s:textfield name="nif" value="%{#session['user'].nif}" readonly="true" />
+        <s:textfield name="user.nif" value="%{#session['user'].nif}" readonly="true" />
     </div>
     <div class="large-6 columns">
         <s:label value="Driver License" />
-        <s:textfield name="driverLicense" value="%{#session['user'].driverLicense}" readonly="true" />
+        <s:textfield name="user.driverLicense" value="%{#session['user'].driverLicense}" readonly="true" />
     </div>
   </div>
 
@@ -43,7 +43,7 @@
   <div class="row">
     <div class="large-12 columns">
         <s:label value="Address" />
-        <s:textfield name="address" value="%{#session['user'].address}" readonly="true" />
+        <s:textfield name="user.address" value="%{#session['user'].address}" readonly="true" />
     </div>
   </div>
 
