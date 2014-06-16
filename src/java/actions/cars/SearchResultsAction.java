@@ -8,6 +8,7 @@ package actions.cars;
 
 import beans.CarForm;
 import beans.CarLocations;
+import beans.CarSearch;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.List;
@@ -27,7 +28,7 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     private CarForm results_params;
     private CarLocations locations;
     private List<Car> list_selected_subsidiary;
-    private List<Car> other_agencies_list;
+    private Map<Integer,List<Car>> other_agencies_list;  
     
     
     public SearchResultsAction() {
@@ -40,24 +41,25 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     
     @Override
     public String execute() throws Exception{
+        process_results();
         return SUCCESS;
     }
     
-    public void x(){
+    public void process_results(){
         if(results_params.getReturn_at_same_location() == true){
             results_params.setDrop_city(results_params.getPick_city());
             results_params.setDrop_subsidiary(results_params.getPick_subsidiary());
         }
         session.put("service_params", results_params);
-
         
+        CarSearch search = new CarSearch(results_params.getPick_subsidiary(),
+                results_params.getPick_date(),
+                results_params.getDrop_date(),
+                results_params.getPick_city(),
+                results_params.getDrop_city());
         
-        /*
-
-        search = CarSearch.new(session[:service_params])
-        @list_selected_subsidiary = search.list_selected_subsidiary
-        @other_agencies_list = search.other_agencies_list
-        */
+        this.other_agencies_list = search.getOther_agencies_list();
+        this.list_selected_subsidiary = search.getList_selected_subsidiary();
     }
     
     @Override
@@ -73,7 +75,7 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     public CarLocations getLocations() {
         return locations;
     }
-
+    
     public void setLocations(CarLocations locations) {
         this.locations = locations;
     }
@@ -85,6 +87,22 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     
     public void setResults_params(CarForm results_params) {
         this.results_params = results_params;
+    }
+    
+    public List<Car> getList_selected_subsidiary() {
+        return list_selected_subsidiary;
+    }
+    
+    public void setList_selected_subsidiary(List<Car> list_selected_subsidiary) {
+        this.list_selected_subsidiary = list_selected_subsidiary;
+    }
+    
+    public Map<Integer, List<Car>> getOther_agencies_list() {
+        return other_agencies_list;
+    }
+    
+    public void setOther_agencies_list(Map<Integer, List<Car>> other_agencies_list) {
+        this.other_agencies_list = other_agencies_list;
     }
     
 }

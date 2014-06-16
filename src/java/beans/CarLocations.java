@@ -25,7 +25,7 @@ public class CarLocations {
     @drop_cities = City.cities_with_same_agency(pick_country, Subsidiary.find(pick_subsidiary).agency.id)
     @drop_subs = Subsidiary.drop_subsidiaries(check_params,Subsidiary.find(pick_subsidiary).agency.id)
     */
-    private List<Country> countries;    
+    private List<Country> countries;
     private Map<String,String> pick_cities;
     private Map<String,String> pick_subs;
     private Map<String,String> drop_cities;
@@ -34,20 +34,20 @@ public class CarLocations {
     //instatiate DAOs
     private CountryDAO cDAO = new CountryDAO();
     private CityDAO ciDAO = new CityDAO();
-    private SubsidiaryDAO sDAO = new SubsidiaryDAO();    
+    private SubsidiaryDAO sDAO = new SubsidiaryDAO();
     
     public CarLocations(int pick_country_id, int pick_city_id, int pick_subsidiary_id,int drop_city_id) {
         this.countries =  cDAO.countries_with_subs();
-        this.pick_cities = ciDAO.cities_with_subsidiaries(pick_country_id);
-        this.pick_subs = sDAO.pick_subsidiaries(pick_city_id);
         this.drop_cities = ciDAO.cities_with_same_agency(pick_country_id, sDAO.find(pick_subsidiary_id).getAgency().getId());
+        this.pick_cities = ciDAO.cities_with_subsidiaries(pick_country_id);
+        this.pick_subs = sDAO.pick_subsidiaries(pick_city_id);        
         this.drop_subs = sDAO.drop_subsidiaries(drop_city_id, sDAO.find(pick_subsidiary_id).getAgency().getId());
-    }    
+    }
     
     public List<Country> getCountries() {
         return countries;
     }
-        
+    
     public void setCountries(List<Country> countries) {
         this.countries = countries;
     }
@@ -82,5 +82,5 @@ public class CarLocations {
     
     public void setDrop_subs(Map<String, String> drop_subs) {
         this.drop_subs = drop_subs;
-    }    
+    }
 }
