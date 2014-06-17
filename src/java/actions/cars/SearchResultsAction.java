@@ -28,20 +28,17 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     private CarForm results_params;
     private CarLocations locations;
     private List<Car> list_selected_subsidiary;
-    private Map<Integer,List<Car>> other_agencies_list;  
+    private Map<Integer,List<Car>> other_agencies_list;
     
     
     public SearchResultsAction() {
         this.results_params = new CarForm();
-        this.locations = new CarLocations(results_params.getPick_country(),
-                results_params.getPick_city(),
-                results_params.getPick_subsidiary(),
-                results_params.getDrop_city());
     }
     
     @Override
     public String execute() throws Exception{
         process_results();
+        load_params(results_params);
         return SUCCESS;
     }
     
@@ -60,6 +57,12 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
         
         this.other_agencies_list = search.getOther_agencies_list();
         this.list_selected_subsidiary = search.getList_selected_subsidiary();
+    }
+    public void load_params(CarForm cf){
+        this.locations = new CarLocations(cf.getPick_country(),
+                cf.getPick_city(),
+                cf.getPick_subsidiary(),
+                cf.getDrop_city());
     }
     
     @Override

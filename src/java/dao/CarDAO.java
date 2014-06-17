@@ -46,8 +46,8 @@ public class CarDAO extends AbstractDAO<Car>{
     
     public List<Car> car_list(int current_subsidiary){
         Criteria c = super.getSession().createCriteria(Car.class,"car");
-        c.add(Restrictions.eq("current_subsidiary", current_subsidiary));
-        c.add(Restrictions.eq("is_available", true));
+        c.add(Restrictions.eq("currentSubsidiary", current_subsidiary));
+        c.add(Restrictions.eq("isAvailable", true));
         List<Car> list = c.list();
         return list;
     }
