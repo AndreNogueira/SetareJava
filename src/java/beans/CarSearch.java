@@ -19,10 +19,10 @@ import model.Car;
  */
 public class CarSearch {
     private List<Car> list_selected_subsidiary;
-    private Map <Integer,List<Car>> other_agencies_list;    
+    private Map <Integer,List<Car>> other_agencies_list;
     
-    private SubsidiaryDAO sDAO;
-    private CarDAO cDAO;    
+    private SubsidiaryDAO sDAO = new SubsidiaryDAO();
+    private CarDAO cDAO = new CarDAO();
     
     public CarSearch (int pick_subsidiary_id, Date pick_date, Date drop_date, int pick_city, int drop_city ){
         this.list_selected_subsidiary = cDAO.car_list(pick_subsidiary_id);
@@ -33,8 +33,10 @@ public class CarSearch {
         
         Map<Integer,List<Car>> other_agencies_list = null;
         int [] list = sDAO.other_subsidiaries(pick_city_id, drop_city_id, pick_subsidiary_id);
-        for(int l=0; l<list.length;l++){
-            other_agencies_list.put( l,cDAO.check_available_cars(list[l], pick_date, drop_date));
+        if(list != null){               
+            for(int l=0; l<list.length;l++){
+                other_agencies_list.put( l,cDAO.check_available_cars(list[l], pick_date, drop_date));
+            }
         }
         return other_agencies_list;
     }
@@ -46,5 +48,5 @@ public class CarSearch {
     public Map<Integer, List<Car>> getOther_agencies_list() {
         return other_agencies_list;
     }
-        
+    
 }

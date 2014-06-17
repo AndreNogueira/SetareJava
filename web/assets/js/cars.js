@@ -14,7 +14,11 @@ $(document).ready(function () {
     $('a.change_pick_location').on('click',function(){
         $('div#pick_location').slideToggle();
         $('div#return_at_same').slideToggle();
-        $('div#drop_location').hide();
+        if($('div#return_at_same').prop('checked')){
+            $('div#drop_location').hide();
+        }else{
+            $('div#drop_location').slideDown();
+        }        
     });
     
     $('select#pick_country').on('change', function () {
@@ -172,8 +176,8 @@ $(document).ready(function () {
     function get_agency(subsidiary_id,callback){
         var agency_id;
         $.getJSON('/SetareJava/cars/get-agency',{id:subsidiary_id}, function (data) {
-                agency_id = data.id_agency;
-                if(typeof callback === "function") callback(agency_id);            
+            agency_id = data.id_agency;
+            if(typeof callback === "function") callback(agency_id);            
         });
     }
     
@@ -184,7 +188,7 @@ $(document).ready(function () {
             $.each(data, function (index, value) {
                 agency_id = value.id;
                 if(typeof callback === "function") callback(agency_id);
-                
+    
             });
         });
     }  */
