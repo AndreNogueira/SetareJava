@@ -1,5 +1,6 @@
 package businesslogic;
 
+import beans.Mailer;
 import beans.TaxiForm;
 import beans.TaxiReservationForm;
 import dao.CityDAO;
@@ -30,12 +31,17 @@ public class TaxiReservation {
     }
 
     public boolean reservation() {
-        if (!this.taxiReservation.getCreditCard().validateCreditCard()) {
+        if (this.taxiReservation.validateCreditCard()) {
+            updateUser();
+            TaxiService tss = createTaxiService();
+            if (tss != null) {
+                Mailer m = new Mailer();
+                m.sendTaxiServiceMail(tss);
+                return true;
+            }
             return false;
         } else {
-            /* Falta mandar o email */
-            updateUser();
-            return createTaxiService();
+            return false;
         }
     }
 
@@ -55,7 +61,7 @@ public class TaxiReservation {
         }
     }
 
-    private boolean createTaxiService() {
+    private TaxiService createTaxiService() {
         TaxiServiceDAO taxiServiceDAO = new TaxiServiceDAO();
         TaxiService ts = new TaxiService();
         ts.setFinalPrice(new BigDecimal(this.taxiReservation.getCost()));
@@ -70,7 +76,8 @@ public class TaxiReservation {
         ts.setRoundTrip(getRoundTrip());
         ts.setServiceBegin(getServiceBegin());
         ts.setServiceEnd(getServiceEnd());
-        return taxiServiceDAO.create(ts);
+        taxiServiceDAO.create(ts);
+        return ts;
     }
 
     private boolean getLuggageValue() {

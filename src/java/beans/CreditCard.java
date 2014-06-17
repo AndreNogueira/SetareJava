@@ -8,14 +8,14 @@ public class CreditCard {
     private String firstName;
     private String lastName;
     private String cardType;
-    private Integer cardNumber;
+    private String cardNumber;
     private Integer cvv;
     private Integer year;
     private Integer month;
 
     public boolean validateCreditCard() {
         CreditCardValidator ccv = new CreditCardValidator();
-        boolean cardNumberValid = ccv.isValid(cardNumber.toString());
+        boolean cardNumberValid = ccv.isValid(cardNumber);
         int yearNow = Calendar.getInstance().get(Calendar.YEAR);
         return cardNumberValid && this.year >= yearNow;
     }
@@ -33,7 +33,7 @@ public class CreditCard {
         return cardType;
     }
 
-    public Integer getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
@@ -61,7 +61,7 @@ public class CreditCard {
         this.cardType = cardType;
     }
 
-    public void setCardNumber(Integer cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

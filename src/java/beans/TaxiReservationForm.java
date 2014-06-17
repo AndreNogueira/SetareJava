@@ -11,6 +11,10 @@ public class TaxiReservationForm {
     private String specialRequest;
     private CreditCard creditCard;
 
+    
+    public boolean validateCreditCard(){
+        return this.creditCard.validateCreditCard();
+    }
     /* Getters and Setters */
     public User getUser() {
         return user;
