@@ -1,6 +1,10 @@
 package beans;
 
+import java.util.Calendar;
+import org.apache.commons.validator.routines.CreditCardValidator;
+
 public class CreditCard {
+
     private String firstName;
     private String lastName;
     private String cardType;
@@ -8,9 +12,12 @@ public class CreditCard {
     private Integer cvv;
     private Integer year;
     private Integer month;
-    
-    public boolean validateCreditCard(){
-        return true;
+
+    public boolean validateCreditCard() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        boolean cardNumberValid = ccv.isValid(cardNumber.toString());
+        int yearNow = Calendar.getInstance().get(Calendar.YEAR);
+        return cardNumberValid && this.year >= yearNow;
     }
 
     /* Getters and Setters */
@@ -69,8 +76,4 @@ public class CreditCard {
     public void setMonth(Integer month) {
         this.month = month;
     }
-    
-    
-    
-    
 }

@@ -35,7 +35,6 @@ public class SearchTaxisAction extends ActionSupport implements ModelDriven<Taxi
                                        taxiFormSearch.getPassengers(), 
                                        taxiFormSearch.getType_trip());
         setTaxiResults(ts.search());
-        System.out.println(taxiFormSearch.getBegin_date());
         return SUCCESS;
     }
     

@@ -41,15 +41,8 @@ public class SelectTaxiAction extends ActionSupport implements SessionAware {
         this.creditCards.add("Visa");
         this.creditCards.add("MasterCard");
         this.creditCards.add("Discover");
-        this.creditCards.add("Maestro");
-        this.creditCards.add("American Express");
+        this.creditCards.add("Amex");
         this.creditCards.add("Diner\'s Club");
-        this.creditCards.add("JCB");
-        this.creditCards.add("Switch");
-        this.creditCards.add("Solo");
-        this.creditCards.add("Dankort");
-        this.creditCards.add("Forbrugsforeningen");
-        this.creditCards.add("Laser");
     }
 
     private void fillYears(int year, int max) {
