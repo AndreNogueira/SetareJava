@@ -4,8 +4,6 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -72,9 +70,7 @@ public class Mailer {
             
             message.setContent(messageBody.toString(),"text/html; charset=utf-8");
             Transport.send(message);
-        } catch (Exception ex) {
-            Logger.getLogger(Mailer.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        } catch (Exception ex) { }        
     }
     public void sendCarServiceMail(){
         
@@ -83,7 +79,7 @@ public class Mailer {
     private Message createMessage(User u) throws Exception{
         Message message = new MimeMessage(this.session);
         message.setFrom(new InternetAddress("noreply.setare@gmail.com","Setare Team"));
-        message.setRecipient(Message.RecipientType.TO, new InternetAddress("andre.nogueira26@gmail.com", u.getName()));
+        message.setRecipient(Message.RecipientType.TO, new InternetAddress(u.getEmail(), u.getName()));
         message.setSentDate(new Date());
         return message;        
     }

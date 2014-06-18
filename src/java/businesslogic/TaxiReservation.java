@@ -57,7 +57,6 @@ public class TaxiReservation {
             this.user.setNif(user1.getNif());
             this.user.setPhoneNumber(user1.getPhoneNumber());
             boolean res = userDao.update(this.user);
-            System.out.println(res);
         }
     }
 
