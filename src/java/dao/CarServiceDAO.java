@@ -1,9 +1,3 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 package dao;
 
 import java.util.Date;
@@ -12,10 +6,6 @@ import model.CarService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-/**
- *
- * @author pjmaia
- */
 public class CarServiceDAO extends AbstractDAO<CarService>{
     
     public List <CarService> services(int car_id){
@@ -24,5 +14,11 @@ public class CarServiceDAO extends AbstractDAO<CarService>{
         c.add(Restrictions.eq("service_end", new Date()));
         List<CarService> services = c.list();
         return services;
+    }
+    
+    public List<CarService> getCarServicesFromUser(Integer idUser){
+        Criteria crit = super.getSession().createCriteria(CarService.class, "carService");
+        crit.add(Restrictions.eq("user.id", idUser));
+        return crit.list();       
     }
 }
