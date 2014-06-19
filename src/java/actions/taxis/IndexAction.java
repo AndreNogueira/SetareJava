@@ -3,8 +3,12 @@ package actions.taxis;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.CountryDAO;
 import java.util.Map;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/taxis")
 public class IndexAction extends ActionSupport {
     

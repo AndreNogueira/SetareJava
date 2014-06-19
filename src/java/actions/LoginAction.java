@@ -4,11 +4,15 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.UserDAO;
 import java.util.Map;
 import model.User;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.apache.struts2.interceptor.SessionAware;
 
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/users")
 @Results({
     @Result(name = "success", location = "/index.jsp"),

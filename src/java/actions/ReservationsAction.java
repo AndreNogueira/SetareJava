@@ -6,9 +6,13 @@ import java.util.Set;
 import model.CarService;
 import model.TaxiService;
 import model.User;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.SessionAware;
 
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/users")
 public class ReservationsAction extends ActionSupport implements SessionAware{
     
