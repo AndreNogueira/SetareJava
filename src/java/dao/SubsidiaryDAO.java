@@ -6,6 +6,7 @@
 
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -40,7 +41,7 @@ public class SubsidiaryDAO extends AbstractDAO<Subsidiary>{
         return createMapSubsidiaries(c.list());
     }
     
-    public int [] other_subsidiaries(int pick_city_id, int drop_city_id, int pick_subsidiary_id){
+    public ArrayList<Integer> other_subsidiaries(int pick_city_id, int drop_city_id, int pick_subsidiary_id){
         
         Criteria c = super.getSession().createCriteria(Subsidiary.class,"subsidiary");
         c.add(Restrictions.eq("city.id", pick_city_id));
@@ -53,15 +54,15 @@ public class SubsidiaryDAO extends AbstractDAO<Subsidiary>{
         int agency_id = super.find(pick_subsidiary_id).getAgency().getId();
         
         //get the remaining existing subsidiaries from same agency at pick city and drop
-        int [] other_subs = null;        
+        ArrayList<Integer> other_subs_array = new ArrayList<>();
         for (Subsidiary p : pick) {
             for (Subsidiary d : drop) {
                 if ((p.getAgency().getId() == d.getAgency().getId()) && (p.getAgency().getId() != agency_id)) {
-                    other_subs[other_subs.length] = p.getAgency().getId(); 
+                    other_subs_array.add(p.getId()); 
                 }
             }
         }
-        return other_subs;        
+        return other_subs_array;        
     }
 
 }

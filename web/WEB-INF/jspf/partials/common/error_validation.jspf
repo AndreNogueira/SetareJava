@@ -1,0 +1,12 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+
+<% String fieldName = request.getParameter("field_name"); %>
+
+<s:if test="hasFieldErrors()">
+    <small class="error">
+        <s:iterator value="fieldErrors.${fieldName}">
+            <s:property /> 
+        </s:iterator>
+    </small> 
+</s:if>

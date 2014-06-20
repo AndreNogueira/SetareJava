@@ -6,13 +6,15 @@
 
 package actions.cars;
 
+import beans.CarCost;
 import beans.CarForm;
 import beans.CarLocations;
-import beans.CarSearch;
+import businesslogic.CarSearch;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import model.Car;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.interceptor.SessionAware;
@@ -27,8 +29,8 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     private Map<String,Object> session;
     private CarForm results_params;
     private CarLocations locations;
-    private List<Car> list_selected_subsidiary;
-    private Map<Integer,List<Car>> other_agencies_list;
+    private Set<CarCost> list_selected_subsidiary;
+    private Map<Integer,Set<CarCost>> other_agencies_list;
     
     
     public SearchResultsAction() {
@@ -39,6 +41,7 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     public String execute() throws Exception{
         process_results();
         load_params(results_params);
+        
         return SUCCESS;
     }
     
@@ -92,19 +95,19 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
         this.results_params = results_params;
     }
     
-    public List<Car> getList_selected_subsidiary() {
+    public Set<CarCost> getList_selected_subsidiary() {
         return list_selected_subsidiary;
     }
     
-    public void setList_selected_subsidiary(List<Car> list_selected_subsidiary) {
+    public void setList_selected_subsidiary(Set<CarCost> list_selected_subsidiary) {
         this.list_selected_subsidiary = list_selected_subsidiary;
     }
     
-    public Map<Integer, List<Car>> getOther_agencies_list() {
+    public Map<Integer, Set<CarCost>> getOther_agencies_list() {
         return other_agencies_list;
     }
     
-    public void setOther_agencies_list(Map<Integer, List<Car>> other_agencies_list) {
+    public void setOther_agencies_list(Map<Integer, Set<CarCost>> other_agencies_list) {
         this.other_agencies_list = other_agencies_list;
     }
     

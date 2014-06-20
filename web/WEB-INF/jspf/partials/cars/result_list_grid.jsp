@@ -1,13 +1,14 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@taglib prefix="sj" uri="/struts-jquery-tags" %>
-
+    
 <div class="large-12 columns" id="results_list">
     <div class="row" id="result_list_inside_panel">
-        <div class="large-3 columns">
-            <div class="row">
-                <div class="large-12 columns">
-                    <div class="car_image" style="text-align: center">
-                        <img src="../assets/images/cars/<s:property value="image"/>"  style="width: 150px; height: 150px;">
+        <s:set var="imageURL">/SetareJava/${initParam.carsImagePath}<s:property value="car.image" />.jpg</s:set>
+            <div class="large-3 columns">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="car_image" style="text-align: center">
+                            <img src="<s:property value="#imageURL"/>"  style="width: 140px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -16,7 +17,7 @@
                 <div class="large-12 columns">
                     <p class="provided_by">Provided by:</p>
                     <div style="text-align: center">
-                        <img src="../assets/images/agencies/<s:property value="getAgency().getImage()"/>"  style="width: 70px; height: 35px;">
+                        <img src="../assets/images/agencies/<s:property value="car.getAgency().getImage()"/>.png"  style="width: 65px; height: 33px;">
                     </div>
                 </div>
             </div>
@@ -25,25 +26,25 @@
         <div class="large-6 columns" id="car_info">
             <div class="row car_info_margin">
                 <div class="large-12 columns">
-                    <p style="font-size: 16px !important;"><s:property value="brand"/> <s:property value="model"/></p>
-                    <p style="font-size: 14px !important;"> Ano:<s:property value="year"/></p>
+                    <p style="font-size: 16px !important;"><s:property value="car.brand"/> <s:property value="car.model"/></p>
+                    <p style="font-size: 14px !important;"> Ano:<s:property value="car.year"/></p>
                 </div>
             </div>
             <div class="row car_info_margin">
                 <div class="large-5 columns" id="border_left">
-                    <p>Classe: <s:property value="getCategory().getName()"/>></p>
+                    <p>Classe: <s:property value="car.getCategory().getName()"/>></p>
                 </div>
                 <div class="large-7 columns">
                     <img src="../assets/images/cars/SearchResults/icon_fuelpolicy.gif"  style="width: 18px; height: 18px;">
-                    <p> <s:property value="fuelType"/>  <s:property value="fuelConsumption"/>L / 100Km</p>
+                    <p> <s:property value="car.fuelType"/>  <s:property value="car.fuelConsumption"/>L / 100Km</p>
                 </div>
             </div>
             <div class="row car_info_margin">
                 <div class="large-2 columns">
-                    <img src="../assets/images/cars/SearchResults/nr_seats.png" style="width: 15px; height: 15px;"> <p>x<s:property value="capacity"/></p>
+                    <img src="../assets/images/cars/SearchResults/nr_seats.png" style="width: 15px; height: 20px;"> <p>x<s:property value="car.capacity"/></p>
                 </div>
                 <div class="large-2 columns" style="text-align: center">
-                    <img src="../assets/images/cars/SearchResults/doors-icon.jpg" style="width: 26px; height: 26px;"><p><s:property value="doorsNumber"/></p>
+                    <img src="../assets/images/cars/SearchResults/doors-icon.jpg" style="width: 26px; height: 26px;"><p><s:property value="car.doorsNumber"/></p>
                 </div>
                 <div class="large-2 columns">
                     <s:if test="car.ac">
@@ -63,16 +64,16 @@
                         <img src="../assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;"><p>automatic</p>
                     </s:else>
                 </div>
-                            
+                    
                 <div class="large-2 columns end" style="text-align: center">
                     <s:if test="car.abs">
                         <img src="../assets/images/cars/SearchResults/icon_abs.png" style="width: 25px; height: 25px;"><br><p>yes</p>
                         </s:if>
                         <s:else>
                         <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 25px; height: 25px;"><br><p>no</p>
-                    </s:else> 
+                        </s:else> 
                 </div>
-                
+                    
             </div>
             <div class="row car_info_margin">
                 <div class="large-12 columns" style="text-align: center !important;">
@@ -82,19 +83,19 @@
             </div>
             <div class="row car_info_margin">
                 <div class="large-7 columns">
-                     <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Safe against Robbery</p>
+                    <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Safe against Robbery</p>
                 </div>
                 <div class="large-5 columns">
-                     <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Revocation</p>
+                    <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Revocation</p>
                 </div>
             </div>
             <div class="row car_info_margin">
                 <div class="large-12 columns">
-                     <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Own damage coverage</p>
+                    <img src="../assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Own damage coverage</p>
                 </div>
             </div>
         </div>
-        
+            
         <div class="large-3 columns" id="price_column">
             <div class="row">
                 <div class="large-12 columns">
@@ -103,17 +104,20 @@
             </div>
             <div class="row">
                 <div class="large-12 columns" style="text-align: center !important;">
-                    <h3><#%= calc_rent_price car.price, session[:service_params]["begin_date"],session[:service_params]["end_date"] %> &euro;</h3>
+                    <h3> <s:property value="cost"/>&euro;</h3>
                 </div>
             </div>
             <div class="row" style="margin-top: 30px!important">
                 <div class="large-12 columns">
-                    <#%= link_to 'Book Now',cars_service_extras_path(car), class: 'button medium radius expand' %>
+                    <s:form namespace="/cars" action="service-extras" method="POST">
+                        <s:hidden name="car_id" value="%{car.id}"></s:hidden>
+                        <s:submit type="button" cssClass="button medium radius expand" label="Book Now" />
+                    </s:form>
                 </div>
             </div>
         </div>
     </div>
-    
+        
     <div class="row">
         <div class="large-3 columns" id="terms_conditions">
             <div style="text-align: center">

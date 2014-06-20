@@ -88,6 +88,7 @@ $(document).ready(function () {
         var drop_subsidiary = $('select#drop_subsidiary');
         var pick_subsidiary = $('select#pick_subsidiary');
         
+        $('input#return_at_same_location').removeAttr('checked');
         get_agency(pick_subsidiary.val(),function(agency_id){
             console.log("Pick Subsidiary :"+pick_subsidiary.val());
             console.log("Agency Id :"+agency_id);

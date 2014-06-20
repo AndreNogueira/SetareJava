@@ -21,7 +21,7 @@ public class CarServiceDAO extends AbstractDAO<CarService>{
     public List <CarService> services(int car_id){
         Criteria c = super.getSession().createCriteria(CarService.class,"car_service");
         c.add(Restrictions.eq("car.id", car_id));
-        c.add(Restrictions.eq("service_end", new Date()));
+        c.add(Restrictions.eq("serviceEnd", new Date()));
         List<CarService> services = c.list();
         return services;
     }

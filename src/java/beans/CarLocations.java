@@ -9,8 +9,10 @@ package beans;
 import dao.CityDAO;
 import dao.CountryDAO;
 import dao.SubsidiaryDAO;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import model.Country;
 
 /**
@@ -18,12 +20,22 @@ import model.Country;
  * @author pjmaia
  */
 public class CarLocations {
-
+    
     private List<Country> countries;
     private Map<String,String> pick_cities;
     private Map<String,String> pick_subs;
     private Map<String,String> drop_cities;
     private Map<String,String> drop_subs;
+    private Map<String,String> location_names;
+    
+    public void setLocation_names(Map<String, String> location_names) {
+        this.location_names = location_names;
+    }
+    
+    public Map<String, String> getLocation_names() {
+        return location_names;
+    }
+    
     
     //instatiate DAOs
     private CountryDAO cDAO = new CountryDAO();
@@ -34,9 +46,19 @@ public class CarLocations {
         this.countries =  cDAO.countries_with_subs();
         this.drop_cities = ciDAO.cities_with_same_agency(pick_country_id, sDAO.find(pick_subsidiary_id).getAgency().getId());
         this.pick_cities = ciDAO.cities_with_subsidiaries(pick_country_id);
-        this.pick_subs = sDAO.pick_subsidiaries(pick_city_id);        
+        this.pick_subs = sDAO.pick_subsidiaries(pick_city_id);
         this.drop_subs = sDAO.drop_subsidiaries(drop_city_id, sDAO.find(pick_subsidiary_id).getAgency().getId());
+        this.location_names = load_names(pick_country_id, pick_city_id, pick_subsidiary_id, drop_city_id);
     }
+    
+    public Map<String,String> load_names(int pick_country_id, int pick_city_id, int pick_subsidiary_id,int drop_city_id){
+        Map <String,String> names = new TreeMap<>();
+        names.put("pcountry_name", cDAO.find(pick_country_id).getName());
+        names.put("pcity_name", ciDAO.find(pick_city_id).getName());
+        names.put("dcity_name", ciDAO.find(drop_city_id).getName());
+        return names;
+    }
+    
     
     public List<Country> getCountries() {
         return countries;
