@@ -12,10 +12,14 @@ import dao.UserDAO;
 import dao.UserProfileDAO;
 import model.User;
 import model.UserProfile;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/users")
 @Results({  @Result(name="success",location="login-page.jsp"),
     @Result(name="input", location = "register-page.jsp"),

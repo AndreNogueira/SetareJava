@@ -4,9 +4,26 @@
 
 <struts>
     <include file="constantsConfig.xml"/>
+    
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
-        
+    <package name="default" extends="struts-default">           
     </package>
+    
+    <!-- Login Interceptor Stack -->
+    <package name="interceptors" namespace="" extends="convention-default">
+        <interceptors>
+            <interceptor name="LoginInterceptor" class="interceptors.LoginInterceptor"></interceptor>
+       
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="LoginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <global-results>
+             <result name="loginError">/WEB-INF/view/users/login-page.jsp</result> 
+             <result name="indexPage">/index.jsp</result>             
+        </global-results>
+    </package>
+    
     <package name="json-actions" extends="json-default"></package>
 </struts>

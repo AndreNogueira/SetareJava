@@ -8,9 +8,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import java.util.Map;
 import java.util.Set;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.SessionAware;
 
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/taxis")
 public class SearchTaxisAction extends ActionSupport implements ModelDriven<TaxiForm>, SessionAware {
     
