@@ -18,6 +18,18 @@ public class CarExtras {
     private int gps_quantity;
     private int baby_seat_quantity;
     private boolean additional_driver;
+
+    public boolean isGps() {
+        return gps;
+    }
+
+    public boolean isBaby_seat() {
+        return baby_seat;
+    }
+
+    public boolean isAdditional_driver() {
+        return additional_driver;
+    }
           
     public void setAdditional_driver_quantity(int additional_driver_quantity) {
         this.additional_driver_quantity = additional_driver_quantity;

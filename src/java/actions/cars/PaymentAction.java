@@ -48,7 +48,9 @@ public class PaymentAction extends ActionSupport implements ModelDriven<CarExtra
         double final_price = car_price + extras_price(this.cExtras);
         
         this.session.put("final_price", final_price);
-        this.session.put("extras", check_extras(final_price));
+        this.session.put("gps_extra", cExtras.isGps());
+        this.session.put("additional_driver_extra", cExtras.isAdditional_driver());
+        this.session.put("baby_seat_extra", cExtras.isBaby_seat());
         this.session.put("extras_price", extras_price(this.cExtras));
         
         load_car(car_id);

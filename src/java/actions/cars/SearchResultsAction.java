@@ -46,6 +46,7 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     }
     
     public void process_results(){
+        results_params.setDrop_country(results_params.getPick_country());
         if(results_params.getReturn_at_same_location() == true){
             results_params.setDrop_city(results_params.getPick_city());
             results_params.setDrop_subsidiary(results_params.getPick_subsidiary());
