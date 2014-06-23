@@ -1,8 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
-<s:url action="reserve-taxis" namespace="taxis" var="taxiReserveURL" />
-<s:form action="/%{taxiReserveURL}" data-abide="abide" validate="true">
+<s:form action="reserve-taxis" namespace="/taxis" method="post" data-abide="abide" validate="true">
     <s:hidden name="idTaxi" value="%{idTaxi}" />
     <s:hidden name="cost" value="%{cost}" /> 
     

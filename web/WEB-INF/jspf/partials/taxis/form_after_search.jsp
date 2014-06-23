@@ -1,8 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
-<s:url action="search-taxis" var="searchTaxisURL" namespace="taxis" />
-<s:form action="/%{searchTaxisURL}" data-abide="abide" validate="true">
+<s:form action="search-taxis" method="post" namespace="/taxis" data-abide="abide" validate="true">
     <fieldset class="fieldset-border">
         <!-- Row Country -->
         <div class="row">
