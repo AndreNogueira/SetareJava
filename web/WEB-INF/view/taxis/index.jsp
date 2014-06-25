@@ -7,8 +7,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <s:url action="search-taxis" var="searchTaxisURL" namespace="taxis" />
-        <s:form action="/%{searchTaxisURL}" data-abide="abide" validate="true">
+        <s:form action="search-taxis" namespace="/taxis" method="post" data-abide="abide" validate="true">
             <fieldset class="fieldset-border">
 
                 <!-- Row Country -->

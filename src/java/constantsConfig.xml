@@ -5,8 +5,10 @@
  
 <struts>
     <constant name="struts.action.extension" value=","/>
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.convention.classes.reload" value="true" /> 
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.convention.classes.reload" value="false" /> 
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.configuration.xml.reload" value="false" />
     <constant name="struts.convention.result.path" value="/WEB-INF/view/" />
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.ui.theme" value="simple"/>
