@@ -12,13 +12,17 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.CarDAO;
 import java.util.Map;
 import model.Car;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author pjmaia
  */
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/cars")
 public class ServiceExtrasAction extends ActionSupport implements SessionAware{
     

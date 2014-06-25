@@ -12,17 +12,19 @@ import beans.CarLocations;
 import businesslogic.CarSearch;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import model.Car;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author pjmaia
  */
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/cars")
 public class SearchResultsAction extends ActionSupport implements SessionAware,ModelDriven<CarForm>{
     

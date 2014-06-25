@@ -10,12 +10,16 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.CountryDAO;
 import java.util.List;
 import model.Country;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 
 /**
  *
  * @author pjmaia
  */
+@ParentPackage("interceptors")
+@InterceptorRef(value = "loginStack")
 @Namespace("/cars")
 public class IndexAction extends ActionSupport{
     
