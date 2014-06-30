@@ -5,7 +5,7 @@
                 <h2>Login</h2>
             </div>
         </div>
-        <s:form action="login" method="post" validate="true" data-abide="abide" >
+        <s:form action="login" namespace="/users" method="post" validate="true" data-abide="abide" >
             <fieldset class="fieldset-border">
                 <div class="row">
                     <div class="email-field">
