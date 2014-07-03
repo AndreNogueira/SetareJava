@@ -32,7 +32,7 @@
                             <s:label name="pick_country" value="Country : " cssClass="right_inline"></s:label>  
                             </div>
                             <div class="large-8 columns">   
-                            <s:select list="locations.countries" listKey="id" listValue="name" headerKey="-1" 
+                            <s:select list="locations.countries" listKey="value" listValue="key" headerKey="-1" 
                                       headerValue="Please Select" name="pick_country" id="pick_country" required="true" 
                                       value="#session['service_params'].pick_country" />                                      
                             <small class="error">You need to choose a Country.</small>

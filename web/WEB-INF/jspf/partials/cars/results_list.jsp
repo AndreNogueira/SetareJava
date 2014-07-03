@@ -30,5 +30,4 @@
         </s:iterator>    
     </s:else>
     <!-- List of cars from other agencies if avaiable END-->
-    <s:debug/>
 </div>

@@ -9,11 +9,8 @@ package beans;
 import dao.CityDAO;
 import dao.CountryDAO;
 import dao.SubsidiaryDAO;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import model.Country;
 
 /**
  *
@@ -21,7 +18,7 @@ import model.Country;
  */
 public class CarLocations {
     
-    private List<Country> countries;
+    private Map<String,String> countries;
     private Map<String,String> pick_cities;
     private Map<String,String> pick_subs;
     private Map<String,String> drop_cities;
@@ -60,11 +57,11 @@ public class CarLocations {
     }
     
     
-    public List<Country> getCountries() {
+    public Map<String,String> getCountries() {
         return countries;
     }
     
-    public void setCountries(List<Country> countries) {
+    public void setCountries(Map<String,String> countries) {
         this.countries = countries;
     }
     

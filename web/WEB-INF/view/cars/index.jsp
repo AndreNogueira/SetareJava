@@ -25,7 +25,7 @@
                     <s:label name="pick_country" value="Country : " cssClass="right_inline"></s:label>          
                     </div>
                     <div class="large-9 columns">
-                    <s:select list="countries" listKey="id" listValue="name" headerKey="-1" headerValue="Please Select" name="pick_country" id="pick_country" required="true" />
+                    <s:select list="countries" listKey="value" listValue="key" headerKey="-1" headerValue="Please Select" name="pick_country" id="pick_country" required="true" />
                     <small class="error">You need to choose a Country.</small>
                 </div>
             </div>

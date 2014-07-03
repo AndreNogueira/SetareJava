@@ -8,8 +8,7 @@ package actions.cars;
 
 import com.opensymphony.xwork2.ActionSupport;
 import dao.CountryDAO;
-import java.util.List;
-import model.Country;
+import java.util.Map;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -23,12 +22,13 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 @Namespace("/cars")
 public class IndexAction extends ActionSupport{
     
-    private List<Country> countries;
+    private Map<String,String> countries;
     private CountryDAO countryDAO;
     
     @Override
     public String execute() throws Exception{
         load_countries();
+        System.out.println("*********************** INDEX ACTION");
         return SUCCESS;
     }
     
@@ -37,11 +37,11 @@ public class IndexAction extends ActionSupport{
         setCountries(countryDAO.countries_with_subs());          
     }    
     
-    public List<Country> getCountries() {
+    public Map<String,String> getCountries() {
         return countries;
     }
     
-    public void setCountries(List<Country> countries) {
+    public void setCountries(Map<String,String> countries) {
         this.countries = countries;
     }
     

@@ -23,11 +23,11 @@ public class CountryDAO extends AbstractDAO<Country>{
         return result;        
     }
     
-    public List<Country> countries_with_subs(){
+    public Map<String,String> countries_with_subs(){
         Criteria c = super.getSession().createCriteria(Country.class,"country");
         c.createCriteria("cities", "city", JoinType.INNER_JOIN);
         c.createCriteria("city.subsidiaries", "sub", JoinType.INNER_JOIN);
         c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        return c.list();
+        return createMapCountry(c.list()); 
     }    
 }
