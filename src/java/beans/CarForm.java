@@ -6,6 +6,8 @@
 
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -20,25 +22,36 @@ public class CarForm {
     private int drop_country;
     private int drop_city;
     private int drop_subsidiary;
-    private Date pick_date;
+    private String pick_date;
     private String pick_time;
-    private Date drop_date;
+    private String drop_date;
     private String drop_time;
     private boolean return_at_same_location;
     
-    public Date getPick_date() {
-        return pick_date;
+    
+    //convert String to Date
+    public Date convertToDate(String date){        
+        Date dat = null;
+        try {
+            dat = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        } catch (ParseException ex) {
+        }
+        return dat;
     }
     
-    public void setPick_date(Date pick_date) {
+    public Date getPick_date() {
+        return convertToDate(pick_date);
+    }
+    
+    public void setPick_date(String pick_date) {
         this.pick_date = pick_date;
     }
     
     public Date getDrop_date() {
-        return drop_date;
+        return convertToDate(drop_date);
     }
     
-    public void setDrop_date(Date drop_date) {
+    public void setDrop_date(String drop_date) {
         this.drop_date = drop_date;
     }
     

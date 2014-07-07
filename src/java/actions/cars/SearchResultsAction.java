@@ -43,7 +43,6 @@ public class SearchResultsAction extends ActionSupport implements SessionAware,M
     public String execute() throws Exception{
         process_results();
         load_params(results_params);
-        System.out.println("*********************** SEARCH ACTION");
         return SUCCESS;
     }
     

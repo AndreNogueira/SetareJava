@@ -28,7 +28,6 @@ public class IndexAction extends ActionSupport{
     @Override
     public String execute() throws Exception{
         load_countries();
-        System.out.println("*********************** INDEX ACTION");
         return SUCCESS;
     }
     
