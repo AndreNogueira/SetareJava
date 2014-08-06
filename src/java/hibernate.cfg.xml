@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Setare</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">admin</property>
-    <property name="hibernate.connection.pool_size">5</property>
-    <property name="hibernate.show_sql">false</property>
-    <property name="hibernate.format_sql">false</property>
-    <mapping class="model.Car"/>
-    <mapping class="model.Country"/>
-    <mapping class="model.TaxiService"/>
-    <mapping class="model.CarService"/>
-    <mapping class="model.PickUpLocation"/>
-    <mapping class="model.PickUpLocationTaxi"/>
-    <mapping class="model.DropOffLocationPickUpLocationId"/>
-    <mapping class="model.UserProfile"/>
-    <mapping class="model.DropOffLocationPickUpLocation"/>
-    <mapping class="model.Taxi"/>
-    <mapping class="model.Category"/>
-    <mapping class="model.User"/>
-    <mapping class="model.Subsidiary"/>
-    <mapping class="model.City"/>
-    <mapping class="model.Agency"/>
-    <mapping class="model.DropOffLocation"/>
-    <mapping class="model.PickUpLocationTaxiId"/>
-  </session-factory>
+    <session-factory>
+        <!-- Hibernate Configuration -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Setare</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">admin</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.max_fetch_depth">3</property>
+        <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+       
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        
+        <!-- Disable second-level cache. -->          
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.cache.use_minimal_puts">false</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        <!-- C3P0 Pool Configuration -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">100</property>
+        <property name="hibernate.c3p0.timeout">300</property> <!-- seconds -->
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property><!-- seconds -->
+        
+        <!-- Mapping of All Classes -->
+        <mapping class="model.Car"/>
+        <mapping class="model.Country"/>
+        <mapping class="model.TaxiService"/>
+        <mapping class="model.CarService"/>
+        <mapping class="model.PickUpLocation"/>
+        <mapping class="model.PickUpLocationTaxi"/>
+        <mapping class="model.DropOffLocationPickUpLocationId"/>
+        <mapping class="model.UserProfile"/>
+        <mapping class="model.DropOffLocationPickUpLocation"/>
+        <mapping class="model.Taxi"/>
+        <mapping class="model.Category"/>
+        <mapping class="model.User"/>
+        <mapping class="model.Subsidiary"/>
+        <mapping class="model.City"/>
+        <mapping class="model.Agency"/>
+        <mapping class="model.DropOffLocation"/>
+        <mapping class="model.PickUpLocationTaxiId"/>
+    </session-factory>
 </hibernate-configuration>
