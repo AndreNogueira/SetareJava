@@ -5,29 +5,56 @@ import java.util.Map;
 import java.util.TreeMap;
 import model.Country;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
+import utils.GenericDAO;
 
-public class CountryDAO extends AbstractDAO<Country>{
-    
-    public Map<String,String> taxis(){
-        Criteria c = super.getSession().createCriteria(Country.class,"country");
-        c.createCriteria("cities", "city", JoinType.INNER_JOIN, Restrictions.eq("city.isTaxi", true));
-        c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);        
-        return createMapCountry(c.list());        
+public class CountryDAO extends GenericDAO<Country> {
+
+    @SuppressWarnings("unchecked")
+    public Map<String, String> taxis() {
+        List res = null;
+        Session session = getSession();
+        session.beginTransaction();
+        try {
+            res = session.createCriteria(Country.class, "country")
+                    .createCriteria("cities", "city",
+                            JoinType.INNER_JOIN, Restrictions.eq("city.isTaxi", true))
+                    .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                    .list();
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        }
+        return createMapCountry(res);
     }
-    
-    private Map<String,String> createMapCountry(List<Country> list){
-        Map<String,String> result = new TreeMap<>();
-        for(Country c :list)  result.put(c.getName(),c.getId().toString());
-        return result;        
+
+    @SuppressWarnings("unchecked")
+    public Map<String, String> countries_with_subs() {
+        List res = null;
+        Session session = getSession();
+        session.beginTransaction();
+        try {
+            res = session.createCriteria(Country.class, "country")
+                    .createCriteria("cities", "city", JoinType.INNER_JOIN)
+                    .createCriteria("city.subsidiaries", "sub", JoinType.INNER_JOIN)
+                    .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                    .list();
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        }
+        return createMapCountry(res);
     }
-    
-    public Map<String,String> countries_with_subs(){
-        Criteria c = super.getSession().createCriteria(Country.class,"country");
-        c.createCriteria("cities", "city", JoinType.INNER_JOIN);
-        c.createCriteria("city.subsidiaries", "sub", JoinType.INNER_JOIN);
-        c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        return createMapCountry(c.list()); 
-    }    
+
+    @SuppressWarnings("unchecked")
+    private Map<String, String> createMapCountry(List<Country> list) {
+        Map<String, String> result = new TreeMap<>();
+        for (Country c : list) {
+            result.put(c.getName(), c.getId().toString());
+        }
+        return result;
+    }
 }

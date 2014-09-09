@@ -4,33 +4,29 @@
     <session-factory>
         <!-- Hibernate Configuration -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Setare</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Setare?autoReconnect=true&amp;autoReconnetForPools=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">admin</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.max_fetch_depth">3</property>
         <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
         <property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
-       
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">false</property>
-        
-        <!-- Disable second-level cache. -->          
+        <!-- Disable second-level cache. -->
         <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
         <property name="hibernate.cache.use_query_cache">false</property>
         <property name="hibernate.cache.use_minimal_puts">false</property>
-        
         <!-- Enable Hibernate's automatic session context management -->
         <property name="hibernate.current_session_context_class">thread</property>
-        
         <!-- C3P0 Pool Configuration -->
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">100</property>
-        <property name="hibernate.c3p0.timeout">300</property> <!-- seconds -->
+        <property name="hibernate.c3p0.idle_test_period">150</property><!-- seconds -->
         <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.timeout">300</property><!-- seconds -->
         <property name="hibernate.c3p0.acquire_increment">1</property>
-        <property name="hibernate.c3p0.idle_test_period">3000</property><!-- seconds -->
-        
+        <property name="hibernate.c3p0.unreturned_connection_timeout">1</property>
         <!-- Mapping of All Classes -->
         <mapping class="model.Car"/>
         <mapping class="model.Country"/>

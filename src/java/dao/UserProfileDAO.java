@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package dao;
 
 import model.UserProfile;
+import utils.GenericDAO;
 
-/**
- *
- * @author pjmaia
- */
-public class UserProfileDAO extends AbstractDAO<UserProfile>{
+public class UserProfileDAO extends GenericDAO<UserProfile>{
     
 }

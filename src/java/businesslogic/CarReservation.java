@@ -1,9 +1,3 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 package businesslogic;
 
 import beans.CarForm;
@@ -17,10 +11,7 @@ import java.util.Map;
 import model.CarService;
 import model.User;
 
-/**
- *
- * @author pjmaia
- */
+
 public class CarReservation {
     
     private User user;

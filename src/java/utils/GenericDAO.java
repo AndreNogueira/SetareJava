@@ -29,6 +29,7 @@ public abstract class GenericDAO<T> {
             session.getTransaction().commit();
             flag = true;
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return flag;
     }
@@ -43,6 +44,7 @@ public abstract class GenericDAO<T> {
             session.getTransaction().commit();
             flag = true;
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return flag;
     }
@@ -57,6 +59,7 @@ public abstract class GenericDAO<T> {
             session.getTransaction().commit();
             flag = true;
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return flag;
     }
@@ -66,11 +69,12 @@ public abstract class GenericDAO<T> {
         List res = null;
         Session session = getSession();
         session.beginTransaction();
-        try {            
+        try {
             res = session.createCriteria(this.classe).list();
             session.flush();
             session.getTransaction().commit();
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return res;
     }
@@ -84,6 +88,7 @@ public abstract class GenericDAO<T> {
             res = (T) session.get(classe, id);
             session.getTransaction().commit();
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return res;
     }
@@ -98,8 +103,8 @@ public abstract class GenericDAO<T> {
                     .uniqueResult();
             session.getTransaction().commit();
         } catch (HibernateException e) {
+            session.getTransaction().rollback();
         }
         return res.intValue();
     }
-
 }
