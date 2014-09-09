@@ -35,8 +35,8 @@ public class TaxiReservation {
             updateUser();
             TaxiService tss = createTaxiService();
             if (tss != null) {
-                Mailer m = new Mailer();
-                m.sendTaxiServiceMail(tss);
+                //Mailer m = new Mailer();
+                //m.sendTaxiServiceMail(tss);
                 return true;
             }
             return false;

@@ -146,20 +146,7 @@ $(document).ready(function () {
         }else{
             $('select#gps_quantity').val(0);
         }
-    });
-    
-    $('#begin_timepicker').timepicker({
-        showOn: 'button',
-        button: $('.begin_timepicker_button_trigger'),
-        timeSeparator: 'h'
-    });
-    
-    $('#end_timepicker').timepicker({
-        showOn: 'button',
-        button: $('.end_timepicker_button_trigger'),
-        timeSeparator: 'h'
-    });
-    
+    });    
     
     function fill_data(url, id,id2, html_select) {        
         $.getJSON(url , {id:id,id2:id2}, function (data) {
@@ -169,30 +156,12 @@ $(document).ready(function () {
                 html_select.append(option);
             });
         });
-    }  
-    
-    
-    
-    
+    } 
     function get_agency(subsidiary_id,callback){
         var agency_id;
         $.getJSON('/SetareJava/cars/get-agency',{id:subsidiary_id}, function (data) {
             agency_id = data.id_agency;
             if(typeof callback === "function") callback(agency_id);            
         });
-    }
-    
-    /*
-    function get_agency(url, id) {        
-        var agency_id;
-        $.getJSON(url , {id:id}, function (data) {            
-            $.each(data, function (index, value) {
-                agency_id = value.id;
-                if(typeof callback === "function") callback(agency_id);
-    
-            });
-        });
-    }  */
-    
-    
+    }    
 });

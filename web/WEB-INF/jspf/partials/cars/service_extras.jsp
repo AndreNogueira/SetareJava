@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="large-12 columns">
                     <div class="car_image" style="text-align: center">           
-                        <img src="../assets/images/cars/<s:property value="car.image"/>.jpg"  style="width: 150px; height: 100px;">
+                        <img src="/SetareJava/assets/images/cars/<s:property value="car.image"/>.jpg"  style="width: 150px; height: 100px;">
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="large-12 columns">
                     <p class="provided_by">Provided by:</p>
                     <div style="text-align: center">
-                        <img src="../assets/images/agencies/<s:property value="car.getAgency().getImage()"/>.png"  style="width: 70px; height: 35px;">          
+                        <img src="/SetareJava/assets/images/agencies/<s:property value="car.agency.image"/>.png"  style="width: 70px; height: 35px;">          
                     </div>
                 </div>
             </div>
@@ -39,39 +39,39 @@
                                 
                         </div>
                         <div class="large-7 columns">
-                            <img src="../assets/images/cars/SearchResults/icon_fuelpolicy.gif" style="width: 15px; height: 15px;"><p> <s:property value="car.fuelType"/>  <s:property value="car.fuelConsumption"/>L / 100Km</p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon_fuelpolicy.gif" style="width: 15px; height: 15px;"><p> <s:property value="car.fuelType"/>  <s:property value="car.fuelConsumption"/>L / 100Km</p>
                         </div>
                     </div>
                     <div class="row car_info_margin">
                         <div class="large-2 columns">
-                            <img src="../assets/images/cars/SearchResults/nr_seats.png" style="width: 13px; height: 13px;"><p>x<s:property value="car.capacity"/></p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/nr_seats.png" style="width: 13px; height: 13px;"><p>x<s:property value="car.capacity"/></p>
                         </div>
                         <div class="large-2 columns" style="text-align: center">
-                            <img src="../assets/images/cars/SearchResults/doors-icon.jpg" style="width: 20px; height: 20px;"><p>x<s:property value="car.doorsNumber"/></p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/doors-icon.jpg" style="width: 20px; height: 20px;"><p>x<s:property value="car.doorsNumber"/></p>
                         </div>
                         <div class="large-2 columns">
                             <s:if test="car.ac">
-                                <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"><p> yes</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"><p> yes</p>
                             </s:if>
                             <s:else>
-                                <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"><p> no</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"><p> no</p>
                             </s:else>                                
                         </div>
                         <div class="large-3 columns" style="text-align: center">
                             <s:if test="car.transmission">
-                                <img src="../assets/images/cars/SearchResults/icon-gear.png" style="width: 22px; height: 22px;"><p>manual</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 22px; height: 22px;"><p>manual</p>
                             </s:if>
                             <s:else>
-                                <img src="../assets/images/cars/SearchResults/icon-gear.png" style="width: 22px; height: 22px;"><p>automatic</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 22px; height: 22px;"><p>automatic</p>
                             </s:else>                   
                         </div>
                             
                         <div class="large-2 columns end" style="text-align: center">
                             <s:if test="car.abs">
-                                <img src="../assets/images/cars/SearchResults/icon_abs.png" style="width: 22px; height: 22px;"><p>yes</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon_abs.png" style="width: 22px; height: 22px;"><p>yes</p>
                             </s:if>
                             <s:else>
-                                <img src="../assets/images/cars/SearchResults/icon_abs.png" style="width: 22px; height: 22px;"><p>no</p>
+                                <img src="/SetareJava/assets/images/cars/SearchResults/icon_abs.png" style="width: 22px; height: 22px;"><p>no</p>
                             </s:else> 
                         </div>
                             
@@ -84,15 +84,15 @@
                     </div>
                     <div class="row car_info_margin">
                         <div class="large-7 columns">
-                            <img src="../assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Safe against Robbery</p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Safe against Robbery</p>
                         </div>
                         <div class="large-5 columns">
-                            <img src="../assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Revocation</p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Revocation</p>
                         </div>
                     </div>
                     <div class="row car_info_margin">
                         <div class="large-12 columns">
-                            <img src="../assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Own damage coverage</p>
+                            <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png"  style="width: 13px; height: 13px;"><p> Own damage coverage</p>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
     <div style="background-color:#D5D5D5 ">
         <div class="row" style="border-top: 1px solid #FFFFFF;">
             <div class="large-2 columns">
-                <img src="../assets/images/cars/MainImages/extra-driver.jpg" style="width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom:5px">
+                <img src="/SetareJava/assets/images/cars/MainImages/extra-driver.jpg" style="width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom:5px">
             </div>
             <div class="large-6 columns">
                 <p style="font-size: 12px">Each <b>additional driver</b> costs 6.15&euro; per day.
@@ -160,7 +160,7 @@
             
         <div class="row" style="border-top: 1px solid #FFFFFF;">
             <div class="large-2 columns">
-                <img src="../assets/images/cars/MainImages/extra-gps.jpg" style="width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom: 5px">
+                <img src="/SetareJava/assets/images/cars/MainImages/extra-gps.jpg" style="width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom: 5px">
             </div>
             <div class="large-6 columns">
                 <p style="font-size: 12px"><b>GPS</b> costs 8.61&euro; per day.
@@ -181,7 +181,7 @@
             
         <div class="row" style="border-top: 1px solid #FFFFFF;" >
             <div class="large-2 columns">
-                <img src="../assets/images/cars/MainImages/extra-booster.jpg" style=" width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom:5px;">
+                <img src="/SetareJava/assets/images/cars/MainImages/extra-booster.jpg" style=" width: 80px; height: 80px; margin-left:15px; margin-top:5px; margin-bottom:5px;">
             </div>
             <div class="large-6 columns">
                 <p style="font-size: 12px"><b>Child Seat</b> costs 10.46&euro; per day.
@@ -203,7 +203,7 @@
     <div class="row" style="margin-top: 10px">
         <div class="large-4 large-offset-4 columns" style="text-align: center">
             <s:submit type="button" cssClass="button tiny radius expand" >
-                <img src="../assets/images/cars/MainImages/key-icon.png" style="width: 30px; height: 30px;"/> Continue
+                <img src="/SetareJava/assets/images/cars/MainImages/key-icon.png" style="width: 30px; height: 30px;"/> Continue
             </s:submit>
         </div>
     </div>

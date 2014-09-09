@@ -15,12 +15,10 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundation/normalize.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundation/foundation.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/foundicons/foundation-icons.min.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/home.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/taxis.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/cars.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.min.css">
         <!-- JS files-->
         <sj:head jqueryui="true" jquerytheme="flick"/>
-        <script src="${pageContext.request.contextPath}/assets/js/foundation/modernizr.js"></script>
+        <script src="${pageContext.request.contextPath}/assets/js/foundation/modernizr.min.js"></script>
         <title>Setare</title>
     </head>
     <body>

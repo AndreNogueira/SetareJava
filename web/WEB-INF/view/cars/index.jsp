@@ -193,14 +193,14 @@
             <h3 id="title_logos"><b>Great brands. Huge choice. Great Savings!</b></h3>
             <div class="logos-wrap">
                 <div class="logos">
-                    <img src="../assets/images/agencies/hertz_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/avis_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/europcar_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/alamo_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/budget_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/national_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/dollar_logo.png" class="subsidiaries_list"/>
-                    <img src="../assets/images/agencies/thrifty_logo.png" class="subsidiaries_list"/>                    
+                    <img src="/SetareJava/assets/images/agencies/hertz_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/avis_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/europcar_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/alamo_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/budget_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/national_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/dollar_logo.png" class="subsidiaries_list"/>
+                    <img src="/SetareJava/assets/images/agencies/thrifty_logo.png" class="subsidiaries_list"/>                    
                 </div>
             </div>
             <br>
@@ -224,7 +224,7 @@
         <p id="callus">
             Do you want to book by phone ?
             Contact Us
-            <span style="color: #000000">913 626 859</span>
+            <span style="color: #000000">923 443 232</span>
         </p>
     </div>
 </div>

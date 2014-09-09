@@ -52,7 +52,7 @@
         <div class="row" id="middle_border">
             <div class="large-12 columns" >
                 <p style="font-size: 12px">
-                    <img src="../assets/images/cars/MainImages/drop-icon.gif" style="width: 18px; height: 18px;"> <s:property value="#session['location_names'].get('dcity_name')"/> ,<s:property value="#session['location_names'].get('pcountry_name')"/> at <s:property value="#session['service_params'].drop_time"/> <s:property value="#session['service_params'].drop_date"/></p>
+                    <img src="/SetareJava/assets/images/cars/MainImages/drop-icon.gif" style="width: 18px; height: 18px;"> <s:property value="#session['location_names'].get('dcity_name')"/> ,<s:property value="#session['location_names'].get('pcountry_name')"/> at <s:property value="#session['service_params'].drop_time"/> <s:property value="#session['service_params'].drop_date"/></p>
             </div>
         </div>
       
@@ -65,7 +65,7 @@
                     <div class="large-12 columns">
                         <p style="font-size: 12px;margin-bottom: 5px">Provided by:</p>
                         <div style="text-align: center">
-                            <img src="../assets/images/agencies/<s:property value="car.getAgency().getImage()"/>.png" style="width: 70px; height: 35px;">
+                            <img src="/SetareJava/assets/images/agencies/<s:property value="car.getAgency().getImage()"/>.png" style="width: 70px; height: 35px;">
                         </div>
                     </div>
                 </div>
@@ -74,23 +74,23 @@
         
                 <div class="row" >
                     <div class="large-12 columns">
-                        <p><img src="../assets/images/cars/SearchResults/nr_seats.png" style="width: 13px; height: 13px;">x<s:property value="car.capacity"/></p>
+                        <p><img src="/SetareJava/assets/images/cars/SearchResults/nr_seats.png" style="width: 13px; height: 13px;">x<s:property value="car.capacity"/></p>
                     </div>
                 </div>
           
                 <div class="row" >
                     <div class="large-12 columns" >
-                        <p><img src="../assets/images/cars/SearchResults/doors-icon.jpg" style="width: 20px; height: 20px;">x<s:property value="car.doorsNumber"/></p>
+                        <p><img src="/SetareJava/assets/images/cars/SearchResults/doors-icon.jpg" style="width: 20px; height: 20px;">x<s:property value="car.doorsNumber"/></p>
                     </div>
                 </div>
           
                 <div class="row" >
                     <div class="large-12 columns">
                         <s:if test="car.ac">
-                            <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"> yes
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"> yes
                         </s:if>
                         <s:else>
-                            <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"> no
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 18px; height: 18px;"> no
                         </s:else>
                     </div>
                 </div>
@@ -99,10 +99,10 @@
                     <div class="large-12 columns" >
                         <s:if test="car.transmission">
               
-                            <img src="../assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;">manual
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;">manual
                         </s:if>
                         <s:else>
-                            <img src="../assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;">automatic
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;">automatic
                         </s:else>
                     </div>
                 </div>
@@ -110,10 +110,10 @@
                 <div class="row">
                     <div class="large-12 columns end" >
                         <s:if test="car.abs">
-                            <img src="../assets/images/cars/SearchResults/icon_abs.png" style="width: 25px; height: 25px;">yes
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon_abs.png" style="width: 25px; height: 25px;">yes
                         </s:if>
                         <s:else>
-                            <img src="../assets/images/cars/SearchResults/icon-ac.png" style="width: 25px; height: 25px;">no
+                            <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 25px; height: 25px;">no
                         </s:else> 
                     </div>
                 </div>
@@ -122,7 +122,7 @@
       
         <div class="row" >
             <div class="large-8 large-offset-2 columns end" id="border_image_norton">
-                <img src="../assets/images/cars/MainImages/norton_x150.png" >
+                <img src="/SetareJava/assets/images/cars/MainImages/norton_x150.png" >
             </div>
         </div>
     </div>
@@ -132,7 +132,7 @@
         <div class="large-12 columns" id="user_info_form">
             <div class="row">
                 <div class="large-12 columns">
-                    <h3><img src="../assets/images/cars/MainImages/form-user.png"> <b>Main driver data</b></h3>
+                    <h3><img src="/SetareJava/assets/images/cars/MainImages/form-user.png"> <b>Main driver data</b></h3>
                 </div>
             </div>
             <!-- Row Name and E-mail -->
@@ -176,11 +176,11 @@
         <div class="large-12 columns" id="user_info_form" style="margin-top: 10px">
             <div class="row">
                 <div class="large-7 columns">
-                    <h3><img src="../assets/images/cars/MainImages/card_icon.png"> <b>Payment Details</b></h3>
+                    <h3><img src="/SetareJava/assets/images/cars/MainImages/card_icon.png"> <b>Payment Details</b></h3>
                 </div>
                 <div class="large-5 columns" style="text-align: right">
                     <p style="font-size: 11px; margin-bottom: 0px">We accept all major payment methods</p>
-                    <img src="../assets/images/cars/MainImages/cards.png" >
+                    <img src="/SetareJava/assets/images/cars/MainImages/cards.png" >
                 </div>
             </div>
             <s:form action="car-reservation" namespace="/cars" data-abide="abide" validate="true" >

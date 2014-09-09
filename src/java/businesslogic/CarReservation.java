@@ -51,8 +51,8 @@ public class CarReservation {
         if (validateCreditCard()) {
             CarService cs = car_service();
             if (cs != null) {
-                Mailer m = new Mailer();
-                m.sendCarServiceMail(cs);
+                //Mailer m = new Mailer();
+                //m.sendCarServiceMail(cs);
                 return true;
             }
             return false;
