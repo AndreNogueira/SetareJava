@@ -59,7 +59,7 @@ public class SubsidiaryDAO extends GenericDAO<Subsidiary> {
         ArrayList<Integer> other_subs_array = new ArrayList<>();
         for (Subsidiary p : pick) {
             for (Subsidiary d : drop) {
-                if ((p.getAgency().getId() == d.getAgency().getId()) && (p.getAgency().getId() != agency_id)) {
+                if ((p.getAgency().getId().equals(d.getAgency().getId())) && (p.getAgency().getId() != agency_id)) {
                     other_subs_array.add(p.getId());
                 }
             }

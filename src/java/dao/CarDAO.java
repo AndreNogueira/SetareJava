@@ -43,6 +43,8 @@ public class CarDAO extends GenericDAO<Car> {
         session.beginTransaction();
         try {
             listRes = session.createCriteria(Car.class, "car")
+                    .createAlias("car.agency", "agency")
+                    .createAlias("car.category", "category")
                     .add(Restrictions.eq("currentSubsidiary", current_subsidiary))
                     .add(Restrictions.eq("isAvailable", true))
                     .list();
@@ -51,5 +53,22 @@ public class CarDAO extends GenericDAO<Car> {
             session.getTransaction().rollback();
         }
         return listRes;
+    }
+    
+    public Car find(int car_id){
+        Car res = null;
+        Session session = getSession();
+        session.beginTransaction();
+        try {
+            res = (Car) session.createCriteria(Car.class,"car")
+                        .createAlias("car.agency", "agency")
+                        .createAlias("car.category", "category")
+                        .add(Restrictions.eq("id", car_id))
+                        .uniqueResult();                    
+            session.getTransaction().commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        }
+        return res;
     }
 }

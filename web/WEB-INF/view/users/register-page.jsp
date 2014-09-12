@@ -5,7 +5,6 @@
                 <h2>Sign up</h2>
             </div>
         </div>
-        <!--  form action="user-registration" data-abide="" namespace="/users" method="post"  -->
         <s:form action="register" namespace="/users" method="post" data-abide="abide" novalidate="novalidate" validate="true" >
             <fieldset class="fieldset-border">                
                 <!-- Row Name -->

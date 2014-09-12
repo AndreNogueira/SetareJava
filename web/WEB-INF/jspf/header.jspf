@@ -26,7 +26,7 @@
             <nav class="top-bar" data-topbar data-options="is_hover: true">
                 <ul class="title-area">
                     <li class="name">
-                        <s:a href="/SetareJava">
+                        <s:a href="/">
                             <img src="<s:url value="/assets/images/setare-logo.png"/>" class="logo-topbar" />
                         </s:a>
                     </li>
@@ -37,12 +37,12 @@
                             <s:if test="#session['user'] != null">
                             <li>
                                 <s:url action="index" namespace="taxis" var="taxisURL" />
-                                <s:a href="/SetareJava/%{taxisURL}" namespace="taxis">Taxis</s:a>
+                                <s:a href="/%{taxisURL}" namespace="taxis">Taxis</s:a>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <s:url action="index" namespace="cars" var="carsURL" />
-                                <s:a href="/SetareJava/%{carsURL}" namespace="cars">Cars</s:a>
+                                <s:a href="/%{carsURL}" namespace="cars">Cars</s:a>
                             </li>
                             <li class="divider"></li>
                             <li class="has-dropdown not-click">
@@ -52,19 +52,19 @@
                                 <ul class="dropdown">
                                     <li>
                                         <s:url action="profile-page" namespace="users" var="profileURL" />
-                                        <s:a href="/SetareJava/%{profileURL}" namespace="users">
+                                        <s:a href="/%{profileURL}" namespace="users">
                                             <i class="fi-torso large"></i> Profile
                                         </s:a>                                        
                                     </li>
                                     <li>
                                         <s:url action="reservations" namespace="users" var="reservationsURL" />
-                                        <s:a href="/SetareJava/%{reservationsURL}" namespace="users">
+                                        <s:a href="/%{reservationsURL}" namespace="users">
                                            <i class="fi-book-bookmark large"></i> My Reservations
                                         </s:a>
                                     </li>
                                     <li>
                                         <s:url action="logout" namespace="users" var="logoutURL" />
-                                        <s:a href="/SetareJava/%{logoutURL}" namespace="users">
+                                        <s:a href="/%{logoutURL}" namespace="users">
                                             <i class="fi-power large"></i> Logout
                                         </s:a>                                        
                                     </li>
@@ -74,12 +74,12 @@
                         <s:else>
                             <li>
                                 <s:url action="login-page" namespace="users" var="loginURL"/>
-                                <s:a href="/SetareJava/%{loginURL}" namespace="users">Login</s:a>
+                                <s:a href="/%{loginURL}" namespace="users">Login</s:a>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <s:url action="register-page" namespace="users" var="registerURL"/>
-                                <s:a href="/SetareJava/%{registerURL}" namespace="users">Register</s:a>
+                                <s:a href="/%{registerURL}" namespace="users">Register</s:a>
                             </li>
                         </s:else>
                     </ul>

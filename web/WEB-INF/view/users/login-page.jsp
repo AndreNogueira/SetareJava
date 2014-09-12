@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="large-6 large-offset-2 columns">
                     <s:url action="register-page" namespace="users" var="registerURL" />
-                    <s:a href="/SetareJava/%{registerURL}" namespace="users">Register</s:a>
+                    <s:a href="/%{registerURL}" namespace="users">Register</s:a>
                 </div>
             </div>
         </fieldset>

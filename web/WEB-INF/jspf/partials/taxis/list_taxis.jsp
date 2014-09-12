@@ -11,7 +11,7 @@
     <s:iterator value="taxiResults">
         <div class="row taxi">
             <!-- Taxi Image -->
-            <s:set var="imageURL">/SetareJava/${initParam.taxisImagePath}<s:property value="taxi.image" />.png</s:set>
+            <s:set var="imageURL">/${initParam.taxisImagePath}<s:property value="taxi.image" />.png</s:set>
                 <div class="large-4 columns" style="padding-top: 1%;text-align: center;">
                     <img src="<s:property value="#imageURL"/>" class="th radius taxi-image" />
                 <div class="span-align">
@@ -25,7 +25,7 @@
                 <div class="row">
                     <!-- Taxi Capacity -->
                     <div class="large-4 columns">
-                        <img src="/SetareJava/assets/images/passengers.png" />
+                        <img src="/assets/images/passengers.png" />
                         <div class="taxi-info">
                             <span class="taxi-text-color">
                                 <s:property value="taxi.passengersNumber" />
@@ -35,7 +35,7 @@
 
                     <!-- Taxi Luggage -->
                     <div class="large-4 columns">
-                        <img src="/SetareJava/assets/images/lagguage.png" />
+                        <img src="/assets/images/lagguage.png" />
                         <div class="taxi-info">
                             <span class="taxi-text-color">
                                 <s:property value="taxi.luggage" />

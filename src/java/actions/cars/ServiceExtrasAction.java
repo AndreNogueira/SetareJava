@@ -1,9 +1,3 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 package actions.cars;
 
 import beans.CarForm;
@@ -17,10 +11,6 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.SessionAware;
 
-/**
- *
- * @author pjmaia
- */
 @ParentPackage("interceptors")
 @InterceptorRef(value = "loginStack")
 @Namespace("/cars")
@@ -31,10 +21,7 @@ public class ServiceExtrasAction extends ActionSupport implements SessionAware{
     private CarLocations locations;
     private Car car;
     private double cost;
-    
-    
-    
-    
+        
     @Override
     public String execute() throws Exception{
         this.session.put("car_id",car_id);

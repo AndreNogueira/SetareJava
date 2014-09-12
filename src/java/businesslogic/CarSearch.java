@@ -13,19 +13,18 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import model.Car;
 
-/**
- *
- * @author pjmaia
- */
+
 public class CarSearch {
 
     private Set<CarCost> list_selected_subsidiary;
     private Map<Integer, Set<CarCost>> other_agencies_list;
 
-    private SubsidiaryDAO sDAO = new SubsidiaryDAO();
-    private CarDAO cDAO = new CarDAO();
+    private SubsidiaryDAO sDAO;
+    private CarDAO cDAO;
 
     public CarSearch(int pick_subsidiary_id, Date pick_date, Date drop_date, int pick_city, int drop_city) {
+        this.sDAO = new SubsidiaryDAO();
+        this.cDAO = new CarDAO();
         this.list_selected_subsidiary = results(cDAO.car_list(pick_subsidiary_id), pick_date, drop_date);
         this.other_agencies_list = other_cars_list(pick_city, drop_city, pick_subsidiary_id, pick_date, drop_date);
     }
@@ -44,7 +43,9 @@ public class CarSearch {
     }
 
     public Map<Integer, Set<CarCost>> other_cars_list(int pick_city_id, int drop_city_id, int pick_subsidiary_id, Date pick_date, Date drop_date) {
-
+        this.sDAO = new SubsidiaryDAO();
+        this.cDAO = new CarDAO();
+        
         Map<Integer, Set<CarCost>> other_agencies_list = new TreeMap<>();
         ArrayList<Integer> list = new ArrayList<>();
         list = sDAO.other_subsidiaries(pick_city_id, drop_city_id, pick_subsidiary_id);

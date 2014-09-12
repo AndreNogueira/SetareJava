@@ -1,7 +1,5 @@
 
 <script src="${pageContext.request.contextPath}/assets/js/foundation/foundation.min.js"></script>
-<!script src="${pageContext.request.contextPath}/assets/js/taxis.js"></script>
-<!script src="${pageContext.request.contextPath}/assets/js/cars.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/application.min.js"></script>
 </body>
 </html>

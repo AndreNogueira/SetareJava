@@ -3,7 +3,7 @@
     
 <div class="large-12 columns" id="results_list">
     <div class="row" id="result_list_inside_panel">
-        <s:set var="imageURL">/SetareJava/${initParam.carsImagePath}<s:property value="car.image" />.jpg</s:set>
+        <s:set var="imageURL">/${initParam.carsImagePath}<s:property value="car.image" />.jpg</s:set>
             <div class="large-3 columns">
                 <div class="row">
                     <div class="large-12 columns">
@@ -17,7 +17,7 @@
                 <div class="large-12 columns">
                     <p class="provided_by">Provided by:</p>
                     <div style="text-align: center">
-                        <s:set var="imageAgencyURL">/SetareJava/${initParam.agenciesImagePath}<s:property value="car.agency.image"/>.png</s:set>
+                        <s:set var="imageAgencyURL">/${initParam.agenciesImagePath}<s:property value="car.agency.image"/>.png</s:set>
                         <img src="<s:property value="#imageAgencyURL"/>"  style="width: 65px; height: 33px;">
                     </div>
                 </div>
@@ -33,45 +33,45 @@
             </div>
             <div class="row car_info_margin">
                 <div class="large-5 columns" id="border_left">
-                    <p>Classe: <s:property value="car.getCategory().getName()"/>></p>
+                    <p>Classe: <s:property value="car.category.name"/></p>
                 </div>
                 <div class="large-7 columns">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/icon_fuelpolicy.gif"  style="width: 18px; height: 18px;">
+                    <img src="/assets/images/cars/SearchResults/icon_fuelpolicy.gif"  style="width: 18px; height: 18px;">
                     <p> <s:property value="car.fuelType"/>  <s:property value="car.fuelConsumption"/>L / 100Km</p>
                 </div>
             </div>
             <div class="row car_info_margin">
                 <div class="large-2 columns">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/nr_seats.png" style="width: 15px; height: 20px;"> <p>x<s:property value="car.capacity"/></p>
+                    <img src="/assets/images/cars/SearchResults/nr_seats.png" style="width: 15px; height: 20px;"> <p>x<s:property value="car.capacity"/></p>
                 </div>
                 <div class="large-2 columns" style="text-align: center">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/doors-icon.jpg" style="width: 26px; height: 26px;"><p><s:property value="car.doorsNumber"/></p>
+                    <img src="/assets/images/cars/SearchResults/doors-icon.jpg" style="width: 26px; height: 26px;"><p><s:property value="car.doorsNumber"/></p>
                 </div>
                 <div class="large-2 columns">
                     <s:if test="car.ac">
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 23px; height: 23px;"><p> yes</p>
+                        <img src="/assets/images/cars/SearchResults/icon-ac.png" style="width: 23px; height: 23px;"><p> yes</p>
                     </s:if>
                     <s:else>
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 23px; height: 23px;"><p> no</p>
+                        <img src="/assets/images/cars/SearchResults/icon-ac.png" style="width: 23px; height: 23px;"><p> no</p>
                             
                     </s:else>
                 </div>
                 <div class="large-3 columns" style="text-align: center">
                     <s:if test="car.transmission">
                         
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;"><p>manual</p>
+                        <img src="/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;"><p>manual</p>
                     </s:if>
                     <s:else>
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;"><p>automatic</p>
+                        <img src="/assets/images/cars/SearchResults/icon-gear.png" style="width: 28px; height: 28px;"><p>automatic</p>
                     </s:else>
                 </div>
                     
                 <div class="large-2 columns end" style="text-align: center">
                     <s:if test="car.abs">
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon_abs.png" style="width: 25px; height: 25px;"><br><p>yes</p>
+                        <img src="/assets/images/cars/SearchResults/icon_abs.png" style="width: 25px; height: 25px;"><br><p>yes</p>
                         </s:if>
                         <s:else>
-                        <img src="/SetareJava/assets/images/cars/SearchResults/icon-ac.png" style="width: 25px; height: 25px;"><br><p>no</p>
+                        <img src="/assets/images/cars/SearchResults/icon-ac.png" style="width: 25px; height: 25px;"><br><p>no</p>
                         </s:else> 
                 </div>
                     
@@ -84,15 +84,15 @@
             </div>
             <div class="row car_info_margin">
                 <div class="large-7 columns">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Safe against Robbery</p>
+                    <img src="/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Safe against Robbery</p>
                 </div>
                 <div class="large-5 columns">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Revocation</p>
+                    <img src="/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Revocation</p>
                 </div>
             </div>
             <div class="row car_info_margin">
                 <div class="large-12 columns">
-                    <img src="/SetareJava/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Own damage coverage</p>
+                    <img src="/assets/images/cars/SearchResults/check-icon.png" style="width: 16px; height: 16px;"><p> Own damage coverage</p>
                 </div>
             </div>
         </div>
