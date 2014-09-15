@@ -16,6 +16,7 @@ public class TaxiServiceDAO extends GenericDAO<TaxiService> {
         session.beginTransaction();
         try {
             res = session.createCriteria(TaxiService.class, "taxiService")
+                    .createAlias("taxiService.taxi", "taxi")
                     .add(Restrictions.eq("user.id", idUser))
                     .list();
             session.getTransaction().commit();

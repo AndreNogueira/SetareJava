@@ -16,7 +16,7 @@ public class CarServiceDAO extends GenericDAO<CarService> {
         Session session = getSession();
         session.beginTransaction();
         try {
-            listRes = session.createCriteria(CarService.class, "car_service")
+            listRes = session.createCriteria(CarService.class, "car_service")                   
                     .add(Restrictions.eq("car.id", car_id))
                     .add(Restrictions.eq("serviceEnd", new Date()))
                     .list();
@@ -33,7 +33,13 @@ public class CarServiceDAO extends GenericDAO<CarService> {
         Session session = getSession();
         session.beginTransaction();
         try {
-            listRes = session.createCriteria(CarService.class, "carService")
+            listRes = session.createCriteria(CarService.class, "car_service")
+                    .createAlias("car_service.car", "car")
+                    .createAlias("car_service.subsidiaryByPickUpSubsidiaryId", "pickUp")
+                    .createAlias("pickUp.agency", "agency")
+                    .createAlias("pickUp.city", "cityPick")
+                    .createAlias("cityPick.country", "countryPick")
+                    .createAlias("car_service.subsidiaryByDropOffSubsidiaryId", "dropOff")
                     .add(Restrictions.eq("user.id", idUser))
                     .list();
             session.getTransaction().commit();
