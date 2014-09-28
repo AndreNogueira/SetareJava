@@ -5,6 +5,7 @@ import java.util.List;
 import model.CarService;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import utils.GenericDAO;
 
@@ -19,6 +20,7 @@ public class CarServiceDAO extends GenericDAO<CarService> {
             listRes = session.createCriteria(CarService.class, "car_service")                   
                     .add(Restrictions.eq("car.id", car_id))
                     .add(Restrictions.eq("serviceEnd", new Date()))
+                    .addOrder(Order.asc("car_service.id"))
                     .list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

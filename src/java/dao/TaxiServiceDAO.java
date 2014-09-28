@@ -4,6 +4,7 @@ import java.util.List;
 import model.TaxiService;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import utils.GenericDAO;
 
@@ -18,6 +19,7 @@ public class TaxiServiceDAO extends GenericDAO<TaxiService> {
             res = session.createCriteria(TaxiService.class, "taxiService")
                     .createAlias("taxiService.taxi", "taxi")
                     .add(Restrictions.eq("user.id", idUser))
+                    .addOrder(Order.asc("taxiService.id"))
                     .list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
