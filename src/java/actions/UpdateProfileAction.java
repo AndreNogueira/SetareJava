@@ -15,7 +15,7 @@ import org.apache.struts2.interceptor.SessionAware;
 @ParentPackage("interceptors")
 @InterceptorRef(value = "loginStack")
 @Namespace("/users")
-@Results({  @Result(name="success",location="login-page.jsp"),
+@Results({  @Result(name="success",location="profile-page.jsp"),
     @Result(name="input", location = "profile-page.jsp"),
     @Result(name="error", location = "profile-page.jsp")})
 public class UpdateProfileAction extends ActionSupport implements SessionAware{
