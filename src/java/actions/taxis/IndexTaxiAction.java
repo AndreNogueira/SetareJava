@@ -10,13 +10,11 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 @ParentPackage("interceptors")
 @InterceptorRef(value = "loginStack")
 @Namespace("/taxis")
-public class IndexAction extends ActionSupport {
+public class IndexTaxiAction extends ActionSupport {
     
     private CountryDAO countryDAO;
     private Map<String,String> countries;
     
-    public IndexAction() {
-    }
     
     @Override
     public String execute() throws Exception {

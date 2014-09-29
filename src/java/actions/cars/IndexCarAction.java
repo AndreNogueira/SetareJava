@@ -1,9 +1,3 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 package actions.cars;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,14 +7,10 @@ import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 
-/**
- *
- * @author pjmaia
- */
 @ParentPackage("interceptors")
 @InterceptorRef(value = "loginStack")
 @Namespace("/cars")
-public class IndexAction extends ActionSupport{
+public class IndexCarAction extends ActionSupport{
     
     private Map<String,String> countries;
     private CountryDAO countryDAO;

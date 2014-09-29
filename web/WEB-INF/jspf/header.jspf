@@ -36,12 +36,12 @@
                         <li class="divider"></li>
                             <s:if test="#session['user'] != null">
                             <li>
-                                <s:url action="index" namespace="taxis" var="taxisURL" />
+                                <s:url action="index-taxi" namespace="taxis" var="taxisURL" />
                                 <s:a href="/%{taxisURL}" namespace="taxis">Taxis</s:a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <s:url action="index" namespace="cars" var="carsURL" />
+                                <s:url action="index-car" namespace="cars" var="carsURL" />
                                 <s:a href="/%{carsURL}" namespace="cars">Cars</s:a>
                             </li>
                             <li class="divider"></li>
