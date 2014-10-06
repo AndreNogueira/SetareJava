@@ -20,6 +20,7 @@ public class TaxiServiceDAO extends GenericDAO<TaxiService> {
                     .createAlias("taxiService.taxi", "taxi")
                     .add(Restrictions.eq("user.id", idUser))
                     .addOrder(Order.asc("taxiService.id"))
+                    .setMaxResults(500)
                     .list();
             session.getTransaction().commit();
         } catch (HibernateException e) {

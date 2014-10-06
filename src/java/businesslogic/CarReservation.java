@@ -2,7 +2,6 @@ package businesslogic;
 
 import beans.CarForm;
 import beans.CreditCard;
-import beans.Mailer;
 import dao.CarDAO;
 import dao.CarServiceDAO;
 import dao.SubsidiaryDAO;

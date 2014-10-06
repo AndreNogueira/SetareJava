@@ -20,7 +20,7 @@ public class CarServiceDAO extends GenericDAO<CarService> {
             listRes = session.createCriteria(CarService.class, "car_service")                   
                     .add(Restrictions.eq("car.id", car_id))
                     .add(Restrictions.eq("serviceEnd", new Date()))
-                    .addOrder(Order.asc("car_service.id"))
+                    .addOrder(Order.asc("car_service.id"))                    
                     .list();
             session.getTransaction().commit();
         } catch (HibernateException e) {
@@ -42,6 +42,7 @@ public class CarServiceDAO extends GenericDAO<CarService> {
                     .createAlias("pickUp.city", "cityPick")
                     .createAlias("cityPick.country", "countryPick")
                     .createAlias("car_service.subsidiaryByDropOffSubsidiaryId", "dropOff")
+                    .setMaxResults(500)
                     .add(Restrictions.eq("user.id", idUser))
                     .list();
             session.getTransaction().commit();

@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 import dao.UserDAO;
 import dao.UserProfileDAO;
+import java.util.Map;
 import model.User;
 import model.UserProfile;
 import org.apache.struts2.convention.annotation.InterceptorRef;
@@ -17,75 +18,82 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
+import org.apache.struts2.interceptor.SessionAware;
 
 @ParentPackage("interceptors")
 @InterceptorRef(value = "loginStack")
 @Namespace("/users")
-@Results({  @Result(name="success",location="login-page.jsp"),
-    @Result(name="input", location = "register-page.jsp"),
-    @Result(name="error", location = "register-page.jsp")})
-public class RegisterAction extends ActionSupport {
+@Results({
+    @Result(name = "success", location = "/index.jsp"),
+    @Result(name = "input", location = "register-page.jsp"),
+    @Result(name = "error", location = "register-page.jsp")})
+public class RegisterAction extends ActionSupport implements SessionAware {
+
     private User user;
     private String password_confirmation;
-    
+    private Map<String, Object> session;
+
     @Override
     public String execute() throws Exception {
         create_user(user);
         return SUCCESS;
     }
-    
+
     public User getUser() {
-        
         return user;
-        
     }
-    
+
     public void setUser(User user) {
-        
         this.user = user;
-        
     }
-    
+
     public String getPassword_confirmation() {
         return password_confirmation;
     }
-    
+
     public void setPassword_confirmation(String password_confirmation) {
         this.password_confirmation = password_confirmation;
     }
-    
+
     // Validations using Struts2 Annotations
     @EmailValidator(fieldName = "user.email", message = "The email you wrote is not valid!")
     @Validations(
             requiredStrings = {
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "password_confirmation", message="Password Confirmation is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.name", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.email", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.address", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.phoneNumber", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.driverLicense", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.bi", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.password", message="This field is required."),
-                @RequiredStringValidator(type= ValidatorType.FIELD, fieldName = "user.nif", message="This field is required.")},
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "password_confirmation", message = "Password Confirmation is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.name", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.email", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.address", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.phoneNumber", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.driverLicense", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.bi", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.password", message = "This field is required."),
+                @RequiredStringValidator(type = ValidatorType.FIELD, fieldName = "user.nif", message = "This field is required.")},
             stringLengthFields = {
-                @StringLengthFieldValidator( type = ValidatorType.FIELD, fieldName = "user.phoneNumber", maxLength = "9", minLength = "9", message = "The phone number can only have 9 digits."),
+                @StringLengthFieldValidator(type = ValidatorType.FIELD, fieldName = "user.phoneNumber", maxLength = "9", minLength = "9", message = "The phone number can only have 9 digits."),
                 @StringLengthFieldValidator(type = ValidatorType.FIELD, fieldName = "user.password", minLength = "8", maxLength = "20", message = "Password needs to have at least 8 digits.")},
             regexFields = {
-                @RegexFieldValidator(fieldName = "user.driverLicense",regex = "[A-Z]-[1-9][0-9]{6}")},
-            expressions = {@ExpressionValidator(expression = "password_confirmation == user.password",message = "Password Confirmation differs from Password.")})
-    
-    public void create_user(User u){
+                @RegexFieldValidator(fieldName = "user.driverLicense", regex = "[A-Z]-[1-9][0-9]{6}")},
+            expressions = {
+                @ExpressionValidator(expression = "password_confirmation == user.password", message = "Password Confirmation differs from Password.")})
+
+    public void create_user(User u) {
         UserProfile up;
         UserProfileDAO upDAO = new UserProfileDAO();
         up = upDAO.find(1);
-        
+
         UserDAO uDAO = new UserDAO();
         u.setUserProfile(up);
-        if(uDAO.create(u)){
+        if (uDAO.create(u)) {
+            session.put("user", u);
             addActionMessage("New User account created with success!");
-        }else{
+        } else {
             addActionError("An unexpected error ocurred. Please try again.");
         }
     }
-    
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.session = map;
+    }
+
 }
